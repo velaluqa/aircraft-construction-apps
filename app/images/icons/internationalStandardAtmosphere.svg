@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="105px" height="80px" viewBox="0 0 105 80" enable-background="new 0 0 105 80" xml:space="preserve">
+    <g opacity="0.8">
+        <g>
+            <g>
+                <line fill="none" stroke="#646475" stroke-width="2" stroke-miterlimit="10" x1="9.938" y1="47.057" x2="11.938" y2="47.057"/>
+                <line fill="none" stroke="#646475" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="3.8736,2.9052" x1="14.843" y1="47.057" x2="94.735" y2="47.057"/>
+                <line fill="none" stroke="#646475" stroke-width="2" stroke-miterlimit="10" x1="96.188" y1="47.057" x2="98.188" y2="47.057"/>
+            </g>
+        </g>
+        <line fill="none" stroke="#646475" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="4,3" x1="10.188" y1="23" x2="98.188" y2="23"/>
+        <path fill="none" stroke="#35353D" stroke-width="2" stroke-miterlimit="10" d="M16.688,16.057C17.938,35.307,22.5,65.25,67,76"/>
+        <polyline fill="none" stroke="#35353D" stroke-width="2" stroke-miterlimit="10" points="55.938,16.307 50.188,22.807 50.188,47.057 87.938,75.807"/>
+        <g>
+            <polyline fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" points="10.188,9 10.188,76 98.188,76"/>
+            <polygon fill="#23232B" points="104,75.522 95.188,78.522 95.188,72.522"/>
+            <polygon fill="#23232B" points="10.188,1 13.188,10 7.188,10"/>
+        </g>
+        <g>
+            <rect x="20.521" y="11.64" fill="none" width="6.333" height="6.833"/>
+            <path d="M22.597,15.455v2.281h-0.77v-5.688h2.176c0.607,0,1.078,0.156,1.414,0.469s0.504,0.724,0.504,1.234 c0,0.518-0.168,0.932-0.504,1.24s-0.807,0.463-1.414,0.463H22.597z M22.597,14.85h1.406c0.385,0,0.673-0.104,0.863-0.31 s0.285-0.467,0.285-0.782s-0.096-0.577-0.287-0.788s-0.479-0.316-0.861-0.316h-1.406V14.85z"/>
+        </g>
+        <g>
+            <rect x="58.021" y="11.64" fill="none" width="6.333" height="6.833"/>
+            <path d="M63.398,12.654H61.57v5.082h-0.77v-5.082h-1.824v-0.605h4.422V12.654z"/>
+        </g>
+        <g>
+            <rect x="1.021" y="11.64" fill="none" width="6.333" height="6.833"/>
+            <path d="M6.337,17.736h-0.77v-2.512H2.806v2.512h-0.77v-5.688h0.77v2.57h2.762v-2.57h0.77V17.736z"/>
+        </g>
+    </g>
+</svg>

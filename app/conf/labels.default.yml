@@ -1,0 +1,756 @@
+# PLEASE DO NOT CHANGE THIS FILE, YOUR CHANGES WILL BE LOST AFTER THE NEXT APP UPDATE
+# Create a file `labels.overwrite.yml.txt` and place particular changes there. Example:
+#
+# airplaneInternalLoads:
+#   fuselage:
+#     shortTitle: FLL
+# mohrsCircle:
+#   shortTitle: Mohr's Circus
+
+search:
+  placeholder: 'Filter the list of curves'
+generic:
+  legend:
+    notAvailable: n/A
+  legendHandler:
+    label: Touch here to select x = {{value}}
+  help:
+    title: Help
+    messages:
+      rendering: Rendering formulars ...
+      missing_help_text: No help text found!
+      noWebGL: WebGL is not supported, using slow canvas fallback
+  generalCurveGroup: General
+  curvesAside:
+    hint: Press and hold to select particular curve, redo to switch back
+overview:
+  title: Overview
+  messages:
+    not_implemented: This app is yet to be implemented.
+  search:
+    placeholder: 'Filter the list of apps'
+  chrome-android-flag-hint: Enabling the Chrome experiment "Override software rendering list" may improve your graph rendering performance significantly. To manage your Chrome experiments, visit chrome://flags.
+airplaneInternalLoads:
+  title: Airplane Internal Loads
+  wing:
+    title: Wing Internal Loads
+    shortTitle: Wing Loads
+    listAnchors:
+      internalLoads:
+        label: Internal Loads
+      externalLoads:
+        label: External Loads
+    formFields:
+      loadCase:
+        options:
+          flight: In Flight
+          ground: Ground
+      loadFactor:
+        label: Load Factor
+        options:
+          1: 1.0 Cruise
+          2.5: 2.5 Max. Maneuver
+          3.75: 3.75 Ultimate
+      airplaneMass:
+        label: Airplane Mass / Lift
+      relWingMass:
+        label: Rel. Wing Mass
+      relFuelMass:
+        label: Rel. Fuel Mass
+      relEngineMass:
+        label: Rel. Engine Mass
+      relPayload:
+        label: Rel. Payload
+      mac:
+        label: Mean Aerodynamic Chord
+      relGearPositionX:
+        label: Gear Position X
+      relGearPositionY:
+        label: Gear Position Y
+      relTankSpan:
+        label: Tank Span
+      relShearCenter:
+        label: Shear Center
+      relEnginePositionY:
+        label: Engine Position Y
+      relThrustCenterZ:
+        label: Thrust Center Z
+    curves:
+      Q:
+        yAxisLabel: Shear Force (Q)
+        yAxisUnitLabel: kN
+      M:
+        yAxisLabel: Bending Moment (M)
+        yAxisUnitLabel: kNm
+      T:
+        yAxisLabel: Twisting Moment (T)
+        yAxisUnitLabel: kNm
+      lift:
+        yAxisLabel: Lift
+        yAxisUnitLabel: kN/m
+      structure:
+        yAxisLabel: Structure
+        yAxisUnitLabel: kN/m
+      fuel:
+        yAxisLabel: Fuel
+        yAxisUnitLabel: kN/m
+      total:
+        yAxisLabel: Total
+        yAxisUnitLabel: kN/m
+  fuselage:
+    title: Fuselage Internal Loads
+    shortTitle: Fuselage Loads
+    listAnchors:
+      internalLoads:
+        label: Internal Loads
+    curves:
+      Q:
+        yAxisUnitLabel: kN
+      M:
+        yAxisUnitLabel: kNm
+    formFields:
+      loadCase:
+        options:
+          flight: In Flight
+          ground: Ground
+      relGearPosition:
+        label: Nose Gear Position
+      relFirstMainFramePosition:
+        label: 1st Main Frame Position
+      relSecondMainFramePosition:
+        label: 2nd Main Frame Position
+      stabilizerLoad:
+        label: Load on Horizontal Stabilizer
+aliasing:
+  title: Aliasing
+  shortTitle: Aliasing
+  legend:
+    original: Original with f = {{value}} Hz
+    alias: Alias with f = {{value}} Hz
+beamSectionProperties:
+  title: Beam Section Properties
+  shortTitle: Beam Section
+  zProfile:
+    title: Z Profile
+    shortTitle: Z Profile
+    curves:
+      Iy:
+        label: Radius of Gyration (y)
+      Iz:
+        label: Radius of Gyration (z)
+      rotProfile:
+        label: Profile (Alfa = {{alfa}})
+      baseProfile:
+        label: Profile (Alfa = 0°)
+    formFields:
+      b:
+        label: Flange Width
+      h:
+        label: Web Height
+      tf:
+        label: Flange Thickness
+      ts:
+        label: Web Thickness
+      alfa:
+        label: Inclination
+      IyAlphaX:
+        label: 2nd MoA (y)
+      IzAlphaX:
+        label: 2nd MoA (z)
+      IyzAlphaX:
+        label: MoD
+      Iy_h:
+        label: RoG (y)
+      Iz_h:
+        label: RoG (z)
+  halfCircle:
+    title: Half Cirlce
+    shortTitle: Half Circle
+    graph:
+      openShearCenter:
+        label: Shear Center of the Open Profile
+      closedShearCenter:
+        label: Shear Center of the Closed Profile
+  staticMoment:
+    title: Static Moment
+    shortTitle: Static Moment
+    curves:
+      neutralAxis:
+        yAxisLabel: Reference Axis
+      Ss:
+        yAxisLabel: 1st MoA Function of s
+      Sz:
+        yAxisLabel: 1st MoA Function of z
+    formFields:
+      coord:
+        label: Coordinate System
+        options:
+          eigen: Center
+          none: Reference
+      za:
+        label: Top (z)
+      l:
+        label: Length
+      t:
+        label: Thickness
+      alpha:
+        label: Inclination
+      z0:
+        label: Reference Axis (z)
+      z0element:
+        label: Centroidal Axis (z)
+      IntSz:
+        label: 1st Moment of Area
+      Iy:
+        label: 2nd Moment of Area
+  uProfile:
+    title: C Profile
+    shortTitle: C Profile
+    graph:
+      shearCenter:
+        label: Location of Shear Center
+    formFields:
+      relFlangeThickness:
+        label: Rel. Flange Thickness
+      relWebThickness:
+        label: Rel. Web Thickness
+      relLipThickness:
+        label: Rel. Lip Thickness
+      relWebHeight:
+        label: Rel. Web Height
+      relLipHeight:
+        label: Rel. Lip Height
+      secondMomentOfArea:
+        label: 2nd Moment of Area
+      shearCenter:
+        label: Shear Center (x)
+buckling:
+  title: Buckling
+  shortTitle: Buckling
+  legendHandler:
+    label: Touch here to select aspect ratio = {{value}}
+  curves:
+    bucklingValue_1:
+      yAxisLabel: k (1 buckling)
+    bucklingValue_2:
+      yAxisLabel: k (2 bucklings)
+    bucklingValue_3:
+      yAxisLabel: k (3 bucklings)
+    bucklingValue_4:
+      yAxisLabel: k (4 bucklings)
+    bucklingValue_5:
+      yAxisLabel: k (5 bucklings)
+    bucklingValue_6:
+      yAxisLabel: k (6 bucklings)
+    festoon:
+      yAxisLabel: Festoon
+  formFields:
+    yx_ratio:
+      label: ny/nx
+cabinSlendernessRatio:
+  title: Cabin Slenderness Ratio
+  shortTitle: Cabin Slenderness
+  legendHandler:
+    label: Touch here to select PAX-Capacity = {{value}}
+  listAnchors:
+    variableAbreast:
+      label: Variable Abreast
+    fixedAbreast:
+      label: Fixed Abreast
+    bounds:
+      label: Bounds
+  curves:
+    wlr:
+      yAxisLabel: W/L (variable abreast)
+    wlr_2:
+      yAxisLabel: W/L (abreast = 2)
+    wlr_3:
+      yAxisLabel: W/L (abreast = 3)
+    wlr_4:
+      yAxisLabel: W/L (abreast = 4)
+    wlr_5:
+      yAxisLabel: W/L (abreast = 5)
+    wlr_6:
+      yAxisLabel: W/L (abreast = 6)
+    wlr_7:
+      yAxisLabel: W/L (abreast = 7)
+    wlr_8:
+      yAxisLabel: W/L (abreast = 8)
+    wlr_9:
+      yAxisLabel: W/L (abreast = 9)
+    wlr_10:
+      yAxisLabel: W/L (abreast = 10)
+    lowerBound:
+      yAxisLabel: Lower bound
+    upperBound:
+      yAxisLabel: Upper bound
+  formFields:
+    f_abreast:
+      label: First
+    c_abreast:
+      label: Business
+    m_abreast:
+      label: Economy
+    f_ratio_lr:
+      label: First
+    c_ratio_lr:
+      label: Business
+    m_ratio_lr:
+      label: Economy
+    f_aisleWidth:
+      label: First
+    c_aisleWidth:
+      label: Business
+    m_aisleWidth:
+      label: Economy
+    f_seatWidth:
+      label: First
+    c_seatWidth:
+      label: Business
+    m_seatWidth_lr:
+      label: Economy lr
+    m_seatWidth_reg:
+      label: Economy reg
+    f_seatPitch:
+      label: First
+    c_seatPitch:
+      label: Business
+    m_seatPitch_lr:
+      label: Economy lr
+    m_seatPitch_reg:
+      label: Economy reg
+    f_serviceArea:
+      label: First
+    c_serviceArea:
+      label: Business
+    m_serviceArea_lr:
+      label: Economy lr
+    m_serviceArea_reg:
+      label: Economy reg
+    f_stowage:
+      label: First
+    c_stowage:
+      label: Business
+    m_stowage:
+      label: Economy
+    f_seatSpace:
+      label: First
+    c_seatSpace:
+      label: Business
+    m_seatSpace:
+      label: Economy
+    f_doorWidth:
+      label: First
+    c_doorWidth:
+      label: Business
+    m_doorWidth:
+      label: Economy
+    f_doorInterval:
+      label: First
+    c_doorInterval:
+      label: Business
+    m_doorInterval:
+      label: Economy
+directOperatingCosts:
+  title: Direct Operating Costs
+  shortTitle: DOC
+  listAnchors:
+    new_DOC:
+      label: New DOC Method
+  legendHandler:
+    label: Touch here to select Range = {{value}} km
+  airplanes:
+    search:
+      placeholder: 'Filter the list of airplanes'
+    creationTitle: Create Airplane
+    editingTitle: Edit Airplane
+    addLabel: Create Airplane
+    deleteConfirmation: Do you really want to delete {{name}}?
+    listAnchors:
+      predefined:
+        label: Predefined Airplanes
+      custom:
+        label: Custom Airplanes
+    formFields:
+      maxTakeOffMass:
+        label: Max. T/O Mass
+      maxFuelMass:
+        label: Max. Fuel Mass
+      operationEmptyMass:
+        label: Op. Empty Mass
+      maxPayload:
+        label: Max. Payload
+      ldRatio:
+        label: L/D Ratio
+      sfc:
+        label: SFC
+      speed:
+        label: Speed (LRC)
+      slst:
+        label: SLST
+  curves:
+    m_PL:
+      yAxisLabel: Payload
+      yAxisUnitLabel: t
+    m_F:
+      yAxisLabel: Fuel
+      yAxisUnitLabel: t
+    m_RF:
+      yAxisLabel: Reserve Fuel
+      yAxisUnitLabel: t
+    m_TO:
+      yAxisLabel: Take-off Mass
+      yAxisUnitLabel: t
+    flights:
+      yAxisLabel: Flights per Year
+    fh:
+      yAxisLabel: Flight Hours
+      yAxisUnitLabel: h
+    fhPA:
+      yAxisLabel: Flight Hours per Year
+      yAxisUnitLabel: h
+    C:
+      yAxisLabel: Direct Operating Costs
+      yAxisUnitLabel: €
+    C_cap:
+      yAxisLabel: Capital Costs
+      yAxisUnitLabel: €
+    C_crew:
+      yAxisLabel: Crew Costs
+      yAxisUnitLabel: €
+    MC_af_mat:
+      yAxisLabel: Maintenance Costs Materials
+      yAxisUnitLabel: €
+    MC_af_per:
+      yAxisLabel: Maintenance Costs Personnel
+      yAxisUnitLabel: €
+    MC_eng:
+      yAxisLabel: Maintenance Costs Engines
+      yAxisUnitLabel: €
+    MC:
+      yAxisLabel: Total Maintenance Costs
+      yAxisUnitLabel: €
+    tko:
+      yAxisLabel: TKO
+    sko:
+      yAxisLabel: SKO
+  costs:
+    formFields:
+      oemPrice:
+        label: OEM Price
+      avgSalaryFA:
+        label: Avg. Salary Flight Assistent
+      avgSalaryFC:
+        label: Avg. Salary Flight Captain
+      atcPrice:
+        label: ATC Price
+  misc:
+internationalStandardAtmosphere:
+  title: International Standard Atmosphere
+  shortTitle: ISA
+  legendHandler:
+    label: Touch here to select Altitude = {{value}} m
+  curves:
+    yAxisLabel: 'Altitude'
+    yAxisUnitLabel: 'm'
+    pressure:
+      xAxisLabel: Pressure
+      xAxisUnitLabel: 'N/m²'
+      selected: true
+    relativePressure:
+      xAxisLabel: Relative Pressure
+      xAxisUnitLabel: '%'
+    density:
+      xAxisLabel: Density
+      xAxisUnitLabel: 'kg/m³'
+      selected: true
+    relativeDensity:
+      xAxisLabel: Relative Density
+      xAxisUnitLabel: '%'
+    temperature:
+      xAxisLabel: Temperature
+      xAxisUnitLabel: 'K'
+      selected: true
+    relativeTemperature:
+      xAxisLabel: Relative Temperature
+      xAxisUnitLabel: '%'
+    speedOfSound:
+      selected: true
+      xAxisLabel: Speed of Sound
+      xAxisUnitLabel: 'm/s'
+    dynamicViscosity:
+      xAxisLabel: Dynamic Viscosity
+      xAxisUnitLabel: '10<sup>-6</sup> Ns/m²'
+    kinematicViscosity:
+      xAxisLabel: Kinematic Viscosity
+      xAxisUnitLabel: '10<sup>-6</sup> m²/s'
+  formFields:
+    altitude:
+      label: Altitude
+    pressure_value:
+      label: Pressure
+    relativePressure_value:
+      label: Relative Pressure
+    density_value:
+      label: Density
+    relativeDensity_value:
+      label: Relative Density
+    temperature_value:
+      label: Temperature
+    relativeTemperature_value:
+      label: Relative Temperature
+    speedOfSound_value:
+      label: Speed of Sound
+    dynamicViscosity_value:
+      label: Dynamic Viscosity
+    kinematicViscosity_value:
+      label: Kinematic Viscosity
+jetEnginePerformance:
+  title: Jet Engine Performance
+  shortTitle: Engine Performance
+  thrust:
+    title: Jet Engine Thrust
+    shortTitle: Thrust
+    legendHandler:
+      label: Touch here to select Mach = {{value}}
+    listAnchors:
+      variableBypassRatio:
+        label: Variable Bypass Ratio
+      fixedBypassRatio:
+        label: Fixed Bypass Ratio
+    curves:
+      SS:
+        yAxisLabel: S/S₀ (variable μ)
+      SS_m0:
+        yAxisLabel: S/S₀ (μ = 0)
+      SS_m2:
+        yAxisLabel: S/S₀ (μ = 2)
+      SS_m4:
+        yAxisLabel: S/S₀ (μ = 4)
+      SS_m6:
+        yAxisLabel: S/S₀ (μ = 6)
+      SS_m8:
+        yAxisLabel: S/S₀ (μ = 8)
+      SS_m10:
+        yAxisLabel: S/S₀ (μ = 10)
+    formFields:
+      mu:
+        label: Bypass Ratio (μ)
+      deltaP:
+        label: ΔP/P
+  consumption:
+    title: Jet Engine Consumption
+    shortTitle: Consumption
+    legendHandler:
+      label: Touch here to select Mach = {{value}}
+    listAnchors:
+      variableBypassRatio:
+        label: Variable Bypass Ratio
+      fixedBypassRatio:
+        label: Fixed Bypass Ratio
+    curves:
+      SFC:
+        yAxisLabel: SFC (variable μ)
+      SFC_m0:
+        yAxisLabel: SFC (μ = 0)
+      SFC_m2:
+        yAxisLabel: SFC (μ = 2)
+      SFC_m4:
+        yAxisLabel: SFC (μ = 4)
+      SFC_m6:
+        yAxisLabel: SFC (μ = 6)
+      SFC_m8:
+        yAxisLabel: SFC (μ = 8)
+      SFC_m10:
+        yAxisLabel: SFC (μ = 10)
+    formFields:
+      mu:
+        label: Bypass Ratio (μ)
+      TET:
+        # label: Turbine Entry Temperature
+        label: TET
+      OAPR:
+        # label: Over-All Preasure Ratio
+        label: OAPR
+      eta_c:
+        label: η<sub>compression</sub>
+      eta_f:
+        label: η<sub>fan</sub>
+      eta_n:
+        label: η<sub>nozzle</sub>
+      eta_t:
+        label: η<sub>turbine</sub>
+laminateDeformation:
+  title: Laminate Deformation
+  shortTitle: Laminate
+  formFields:
+    xyPsf:
+      label: X/Y Plot Scale Factor
+    zPsf:
+      label: Z Plot Scale Factor
+    laminate:
+      options:
+        fullyCoupled: Fully Coupled
+        unsymmetricAnglePly: Unsymmetric Angle-Ply
+liftDistribution:
+  title: Lift Distribution
+  shortTitle: Lift Distribution
+  legendHandler:
+    label: Touch here to select eta = {{value}}
+  curves:
+    C_A:
+      yAxisLabel: c_A
+    C_a:
+      yAxisLabel: c_a
+mohrsCircle:
+  title: Mohr's Circle
+  shortTitle: Mohr's Circle
+  curves:
+    sectionForce:
+      label: Plane Stress
+    transformedSectionForce:
+      label: Transformed Plane Stress
+  formFields:
+    nx:
+      label: Normal Stress σ<sub>x</sub>
+    ny:
+      label: Tangential Stress σ<sub>y</sub>
+    nxy:
+      label: Shear Stress τ<sub>xy</sub>
+    alpha:
+      label: Stress Plane Inclination
+    nX:
+      label: Normal Stress σ<sub>x</sub>
+    nY:
+      label: Tangential Stress σ<sub>y</sub>
+    nXY:
+      label: Shear Stress τ<sub>xy</sub>
+    n1:
+      label: Major Principal Stress σ<sub>1</sub>
+    n2:
+      label: Minor Principal Stress σ<sub>2</sub>
+    x0:
+      label: x<sub>0</sub>
+    R:
+      label: r
+sandwichStructuredComposite:
+  title: Sandwich
+  shortTitle: Sandwich
+  yAxisLabel: Deflection [mm]
+  xAxisLabel: x [unit length]
+  curves:
+    w_beam:
+      yAxisLabel: Bending Deflection
+      yAxisUnitLabel: mm
+    w_stress:
+      yAxisLabel: Shear Deflection
+      yAxisUnitLabel: mm
+    w_stress_ratio:
+      yAxisLabel: Shear Ratio of Total Deflection
+      yAxisUnitLabel: '%'
+    w_total:
+      yAxisLabel: Total Deflection
+      yAxisUnitLabel: mm
+    core_value:
+      yAxisLabel: Core Value
+thinWalledCantilever:
+  title: Thin Walled Cantilever
+  shortTitle: Thin Walled Cantilever
+  beam:
+    title: Beam
+    shortTitle: Beam
+    curves:
+      beam:
+        yAxisLabel: Classic Beam Theory
+      slice:
+        yAxisLabel: Stress Function
+  intermediates:
+    title: Intermediates
+    shortTitle: Intermediates
+    listAnchors:
+      intermediates:
+        label: Intermediates
+    curves:
+      c1_dist:
+        yAxisLabel: C1
+      d1_dist:
+        yAxisLabel: D1
+      d2_dist:
+        yAxisLabel: D2
+vnDiagram:
+  title: v-n-Diagram
+  shortTitle: v-n-Diagram
+  graph:
+    xAxisLabel: Equivalent Air Speed in m/s
+    yAxisLabel: Load Factor
+  legendHandler:
+    label: Touch here to control air speed = {{value}}
+  listAnchors:
+    flareLoadFactor:
+      label: Manoeuvring Load
+    gustLoad:
+      label: Gust Load
+  formFields:
+    vdvc60:
+      label: vD - vC = 60
+    designSpeed:
+      label: Design Speed
+    aspectRatio:
+      label: Aspect Ratio
+    taperRatio:
+      label: Taper Ratio
+    takeOffMass:
+      label: Take-Off Mass
+    maxSurfaceLoad:
+      label: Wing Loading
+    fuelFactor:
+      label: Fuel Mass Fraction
+    wingSweep:
+      label: Wing Sweep
+    maxLiftCoefficient:
+      label: Max. C<sub>L</sub>
+    minLiftCoefficient:
+      label: Min. C<sub>L</sub>
+    maxStartLiftCoefficient:
+      label: Max. C<sub>L</sub> (Start)
+    maxLandingLiftCoefficient:
+      label: Max. C<sub>L</sub> (Landing)
+    altitude:
+      label: Altitude
+  graphAnnotations:
+    vFS: v<sub>FS</sub>
+    vFL: v<sub>FL</sub>
+    vH: v<sub>H</sub>
+    vA: v<sub>A</sub>
+    vB: v<sub>B</sub>
+    vC: v<sub>C</sub>
+    vD: v<sub>D</sub>
+    vStall: v<sub>stall</sub>
+  curves:
+    speedAnnotations:
+      yAxisLabel: Speed Annotations
+    nF:
+      yAxisLabel: Clean Configuration
+    nFTS:
+      yAxisLabel: Start Configuration
+    nFTL:
+      yAxisLabel: Landing Configuration
+    nG:
+      yAxisLabel: Gust Envelope
+    gustLines:
+      label: Gust Velocities
+      subcurves:
+        gustLineB:
+          label: Gust Line for v<sub>B</sub>
+        gustLineC:
+          label: Gust Line for v<sub>C</sub>
+        gustLineD:
+          label: Gust Line for v<sub>D</sub>
+        gustLineE:
+          label: Gust Line for v<sub>E</sub>
+        gustLineF:
+          label: Gust Line for v<sub>F</sub>
+        gustLineG:
+          label: Gust Line for v<sub>G</sub>
+    gustHull:
+      yAxisLabel: Flight Envelope

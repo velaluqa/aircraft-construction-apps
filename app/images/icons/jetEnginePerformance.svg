@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="105px" height="80px" viewBox="0 0 105 80" enable-background="new 0 0 105 80" xml:space="preserve">
+    <g opacity="0.8">
+        <path fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" d="M24.688,10.25c16.564,0,39.453,3.167,54.5,7.485 s15.25,41.17,0,44.625c-16.212,3.673-35.407,7.294-52.983,7.294"/>
+        <ellipse fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" cx="23.438" cy="40" rx="20.375" ry="29.75"/>
+        <path fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" d="M85.938,23.398c4.454-0.096,16,8.157,16,16.506 s-10.804,16.123-15.34,16.794"/>
+        <g>
+            <defs>
+                <path id="SVGID_1_" d="M24.625,12.349c-9.769,0-17.688,12.38-17.688,27.651c0,15.271,7.919,27.651,17.688,27.651
+                                       S42.313,55.271,42.313,40C42.313,24.729,34.394,12.349,24.625,12.349z M24.777,50.855c-3.214,0-13.298-4.876-13.298-11.751
+                                       s10.084-11.751,13.298-11.751c3.797,0,6.66,5.052,6.66,11.751S28.574,50.855,24.777,50.855z"/>
+            </defs>
+            <clipPath id="SVGID_2_">
+                <use xlink:href="#SVGID_1_"  overflow="visible"/>
+            </clipPath>
+            <g clip-path="url(#SVGID_2_)">
+                <path fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" d="M-2.491,16.749 c9.361,5.724,20.194-5.574,25.679,22.322S39.5,55.736,48.86,61.46"/>
+                <path fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" d="M19.975,4.094 c2.792,11.048,18.006,11.161,3.235,34.988s0.393,23.983,3.185,35.031"/>
+                <path fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" d="M44.321,11.948 c-5.412,9.9,5.27,21.359-21.105,27.16S7.46,56.36,2.048,66.26"/>
+                <path fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" d="M56.286,35.71 c-10.446,2.953-10.553,19.044-33.081,3.421S0.529,39.546-9.916,42.499"/>
+                <path fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" d="M7.798,7.921 c6.505,9.135,20.649,3.207,15.402,31.153s8.866,22.078,15.371,31.213"/>
+                <path fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" d="M33.152,5.547 c-1.507,11.324,12.457,17.711-9.937,33.548s-8.491,22.242-9.998,33.566"/>
+                <path fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" d="M52.668,22.831 c-8.637,6.88-3.032,21.84-29.455,16.29S2.339,48.498-6.298,55.378"/>
+                <path fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" d="M54.912,49.647 c-10.707-1.594-16.745,13.176-31.719-10.51S2.164,30.156-8.543,28.562"/>
+            </g>
+        </g>
+        <path fill="#23232B" d="M29.438,39.104c0,5.385-2.087,9.751-4.66,9.751s-11.298-4.366-11.298-9.751s8.724-9.751,11.298-9.751 S29.438,33.719,29.438,39.104z"/>
+        <path fill="#23232B" d="M29.438,39.104c0,5.385-2.087,9.751-4.66,9.751s-11.298-4.366-11.298-9.751s8.724-9.751,11.298-9.751 S29.438,33.719,29.438,39.104z"/>
+    </g>
+</svg>

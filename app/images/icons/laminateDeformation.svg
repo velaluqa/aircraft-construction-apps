@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="120px" height="40px" viewBox="0 0 120 40" enable-background="new 0 0 120 40" xml:space="preserve">
+    <g opacity="0.8">
+        <g>
+            <path fill="none" stroke="#2D2D38" stroke-width="2" stroke-miterlimit="10" d="M65.035,8.537 c21.884,4.855,23.892,28.151,23.892,28.151l15.25-8.125c0,0-10.25-25.25-33.125-25.25c-24.75,0-35.25,8-35.25,8"/>
+            <path fill="none" stroke="#2D2D38" stroke-width="2" stroke-miterlimit="10" d="M16.927,35.438l26.75-12.25 c0,0,9.06-16.057,21.358-14.651c-3.149-0.699-6.707-1.099-10.733-1.099C22.302,7.438,16.927,35.438,16.927,35.438z"/>
+        </g>
+        <path fill="none" stroke="#2D2D38" stroke-miterlimit="10" d="M74.302,6.563"/>
+        <path fill="none" stroke="#2D2D38" stroke-miterlimit="10" d="M49.677,7.938"/>
+        <g>
+            <polygon fill="#23232B" points="118.615,25.698 109.802,28.698 109.802,22.698"/>
+            <line fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" x1="95.583" y1="25.64" x2="112" y2="25.561"/>
+        </g>
+        <polygon fill="#23232B" points="1.385,25.698 10.198,22.698 10.198,28.698  "/>
+        <path fill="#23232B" d="M21.433,24.64L8.193,24.704l0.01,2l12.078-0.058C20.628,25.993,21.017,25.321,21.433,24.64z"/>
+    </g>
+</svg>

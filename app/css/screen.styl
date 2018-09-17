@@ -1,0 +1,372 @@
+// ILR specific
+$range-handler-width = 65px
+
+// Remember that this color should be set in CurveGraph aswell
+// to resemble the fillColor of the range indicator triangles:
+$legend-background = #f2f2f2
+
+$legend-height = 54px
+
+@import "poised"
+@import "vendor/stackedit"
+
+sub
+  vertical-align sub
+  font-size 0.7em
+  margin-left 3px
+
+sup
+  vertical-align super
+  font-size 0.7em
+  margin-left 3px
+
+#app
+  absolute 0 0 0 0
+  overflow hidden
+
+#help article
+  overflow scroll
+  -webkit-overflow-scrolling touch
+  padding 10px
+  font-size 80%
+  stackedit()
+
+#overview
+  $margin = 18px
+  $tile-size = 200px
+  $tile-spacing = 8px
+
+  ul
+    margin 0
+
+    li.search-box
+      margin $margin
+    li.anchor
+      margin 0 $margin
+      + li.anchor
+      &.collapsed
+        margin-bottom $margin
+
+  article > ul
+    .list-group
+      clearfix()
+      margin ($margin - $tile-spacing/2)
+
+    .tile
+      position relative
+      width 50%
+      height $tile-size
+      max-width $tile-size
+      float left
+      padding ($tile-spacing/2)
+      cursor pointer
+      border 0
+      display inline-block
+
+      .wrapper
+        width 100%
+        height 100%
+        background-color #eeeeee
+
+        img
+          center absolute
+          max-width 70%
+          max-height 45%
+
+        span.title
+          absolute none 0 15px 0
+          text-align center
+          font-size 0.7em
+          line-height 1.2em
+
+  .hint
+    display none
+    margin $margin
+    color lighten($foreground, 30%)
+
+    &:before
+      font-family FontAwesome
+      content "\f05a"
+      margin-right 0.5em
+      font-size 1.3em
+
+// small legend without values
+#aliasing
+#thin-walled-cantilever
+#buckling
+#laminate-deformation
+  article.graph
+    div.legend
+      .curve
+        display inline-block
+        white-space nowrap
+        padding 7px 10px
+
+        .line
+          border 2px solid
+          border-radius 2px
+          width 20px
+          height 0
+          display inline-block
+          relative -0.2em
+          margin-right 0.5em
+
+        &.original .line
+          border-color #a00
+
+        &.alias .line
+          border-color #00f
+
+    div.graph
+      absolute 0 0 0 0
+
+article.graph
+  div.legend
+    z-layer 'section', 'legend'
+    absolute 0 0 none 0
+    font-size .75em
+    line-height 1.2em
+    background $legend-background
+    border-bottom 1px solid #ccc
+    opacity .8
+    touch-action auto
+
+    .line-type
+      position relative
+      top -0.2em
+      height 0
+      display inline-block
+      width 20px
+      border-radius 2px
+      margin-right 10px
+
+      &.solid
+        border 1px solid $foreground
+      &.dashed
+        border 1px dashed $foreground
+
+    .values-at-range
+      font-size 0.9em
+      text-align left
+
+      .range
+        color #999999
+
+      .label
+        font-weight 500
+
+      .col
+        display table-cell
+        width 1%
+        white-space nowrap
+        padding 10px 10px 0 10px
+        height $legend-height
+        text-align center
+
+        &.values
+          cursor pointer
+
+        &.active
+          background rgba(#fff, 60%)
+          border-bottom 4px solid $tab-marker-color
+
+  div.graph
+    z-layer 'section', 'graph'
+
+  div.range-handler
+    text-align center
+    cursor pointer
+    background $legend-background
+
+    span.hint
+      line-height $range-handler-width
+
+    &.orientation-x
+      absolute none 0 0 0
+      height $range-handler-width
+
+    &.orientation-y
+      absolute $legend-height none 0 0
+      width $range-handler-width
+
+      span.hint
+        absolute 50% none none 50%
+        transform translateX(-50%) translateY(-50%) rotate(-90deg)
+        width 500px // ugly, but no alternative
+
+// horizontal range slider
+#direct-operating-costs
+#airplane-wing-internal-loads
+#airplane-fuselage-internal-loads
+#jet-engine-performance
+#lift-distribution
+#cabin-slenderness-ratio
+#sandwich-structured-composite
+#vn-diagram
+  article.graph
+    div.legend
+      height $legend-height
+      border 0
+    div.graph
+      absolute $legend-height 0 $range-handler-width 0
+
+// vertical range slider
+#international-standard-atmosphere
+  article.graph
+    div.legend
+      height $legend-height
+      border 0
+    div.graph
+      absolute $legend-height 0 0 $range-handler-width
+
+#direct-operating-costs
+  article.graph div.legend .values-at-range .col
+    padding 0 10px
+
+#mohrs-circle
+#beam-section-properties
+  $legend-height = 0
+  $range-handler-width = 0
+  article.graph
+    div.legend
+      height $legend-height
+      border 0
+    div.graph
+      absolute $legend-height 0 $range-handler-width 0
+
+aside
+  &.hidden
+    opacity 0 !important
+
+  &.parameters .description
+    padding 1em
+    display table
+
+    .icon
+      display table-cell
+      width 1px
+
+    .text
+      display table-cell
+      padding-left 0.66em
+
+  &.airplanes
+    li.item
+      padding 0
+      white-space no-wrap
+
+      label.item
+        padding $list-item-padding
+        div
+          font-size 0.85em
+          line-height 1.2em
+          &.name
+            font-weight 400
+
+  &.curves
+    $color-span-width = 30px
+    li.item
+      padding 0
+      height $list-item-height + 1px
+
+      label.item
+        margin 0
+        height $list-item-height + 1px
+
+        .color
+          display inline-block
+          width $color-span-width
+          height $list-item-height
+          background: #ccc
+          border-left 1px solid $list-item-border
+          border-right 1px solid $list-item-border
+
+        .name
+          vertical-center absolute
+          left $color-span-width + 10px
+          font-size 1.2em
+
+      label.checkbox
+        float right
+        margin 3px
+
+    li.anchor
+      padding 4px
+      height auto
+
+    .hint
+      margin: 0 18px 18px 18px
+      text-align center
+
+  &.headup
+    z-layer 'section', 'headup'
+    absolute auto none 0 none
+    background-color rgba(#ffffff, 0.8)
+    opacity 1
+    transform translateY(100%)
+    transition opacity .2s ease-in-out
+
+    &.right
+      transform translateY(100%)
+
+    &.active
+      transform translateY(0)
+
+section.subapp-container
+  &> section
+    transform translateX(0)
+    transition none
+    z-index 5
+
+    transform-origin 50% 10%
+    opacity 0
+    transform scale(0.75)
+    transition opacity 0 ease-in-out 200ms, transform 0 ease-in-out 200ms
+
+    &.active
+      visibility visible
+      transition opacity 200ms ease-in-out, transform 200ms ease-in-out
+      opacity 1
+      transform scale(1)
+      z-index 10
+
+.range-handler
+aside.curves
+  > .hint
+    color lighten($foreground, 30%)
+
+    &:before
+      font-family FontAwesome
+      content "\f05a"
+      margin-right 0.5em
+      font-size 1.3em
+
+img.ilr-logo
+  absolute none 0 0 none
+  height $range-handler-width
+  z-layer 'section', 'graph'
+
+  @media $media-lt-phone
+    display none
+
+span.mark
+  background-color yellow
+
+
+.poised .list-group
+  margin 0
+
+.poised
+  .list-group + .anchor
+    margin-top 18px
+
+.icon.scene:before
+  content: "\f03e"
+
+.icon.calculator:before
+  content: "\f1ec"
+
+// on iPhones, avoid collision between slider and Safari back-swipes
+@media $media-lt-phone
+  html.ios .poised.slider
+    margin-left 20px

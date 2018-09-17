@@ -1,0 +1,2541 @@
+# PLEASE DO NOT CHANGE THIS FILE, YOUR CHANGES WILL BE LOST AFTER THE NEXT APP UPDATE
+# Create a file `settings.overwrite.yml.txt` and place particular changes there. Example:
+#
+# directOperatingCosts:
+#   airplanes:
+#     A 300 B4-200:
+#       speed: 855
+#     ILR Super Aircraft:
+#       maxTakeOffMass: 165000
+#       maxFuelMass: 59646
+#       operationEmptyMass: 80640
+#       maxPayload: 45360
+#       maxRange: 8412
+#       speed: 2300
+#       engineCount: 6
+#       slst: 233
+#       engine: 6 x 233kN CF6-50C2
+#       reference: ILR12345
+# beamSectionProperties:
+#   zProfile:
+#     defaults:
+#       h: 12.5
+#
+# Structure:
+#
+# {appName}:
+#   curves:
+#     {curveName}:
+#       group: {groupName} # Translation in labels.yml.txt file at {appName} -> listAnchors -> {groupName} -> label
+#       selected: (true|false)
+#   defaults:
+#     {parameterName}: {parameterDefaultValue}
+#   formFields:
+#     {fieldName}:
+#       range: [{fieldFrom}, {fieldTo}] # including boundary values
+#       stepSize: {fieldStepSize}
+#       group: {fieldGroupName} # Translated to "Field Group Name"
+#       precision: {fieldPrecision} # Decimal places for computed fields
+#   {subappPath}: # subapp settings are more specific and therfore supercede settings from parent layers
+#     curves:
+#       {curveName}:
+#         selected: (true|false)
+#
+# In this file, all curves, parameters and formFields are present even if they have no dedicated settings.
+
+ilr:
+  url: http://www.luftbau.tu-berlin.de/
+airplaneInternalLoads:
+  fuselage:
+    defaults:
+      loadCase: flight
+      fuselageMass: 5000
+      fuselageLength: 20
+      relFirstMainFramePosition: 50
+      relSecondMainFramePosition: 70
+      relGearPosition: 15
+      stabilizerLoad: -16000
+    curves:
+      Q:
+        group: internalLoads
+        selected: true
+        unitFactor: 0.001
+      M:
+        group: internalLoads
+        selected: true
+        unitFactor: 0.001
+    formFields:
+      fuselageMass:
+        range: [1000, 10000]
+        stepSize: 1000
+        unit: 'kg'
+      fuselageLength:
+        range: [10, 100]
+        unit: 'm'
+      relFirstMainFramePosition:
+        range: [0, 100]
+        stepSize: 0.1
+        unit: '%'
+      relSecondMainFramePosition:
+        range: [0, 100]
+        stepSize: 0.1
+        unit: '%'
+      relGearPosition:
+        range: [0, 100]
+        stepSize: 0.1
+        unit: '%'
+      stabilizerLoad:
+        range: [-20000, 20000]
+        stepSize: 1000
+        unit: 'N'
+  wing:
+    defaults:
+      loadCase: flight
+      thrust: 300
+      loadFactor: 1.0
+      airplaneMass: 50000
+      relWingMass: 15
+      relFuelMass: 25
+      relEngineMass: 10
+      relPayload: 20
+      span: 20
+      aspectRatio: 9
+      taper: 0.3
+      wingArea: 44
+      innerChord: 4.31
+      outerChord: 1.03
+      mac: 22.02
+      relGearPositionX: 65
+      relGearPositionY: 20
+      relTankSpan: 75
+      relEnginePositionY: 30
+      relShearCenter: 40
+      relThrustCenterZ: -100
+    curves:
+      lift:
+        group: externalLoads
+        selected: true
+        unitFactor: 0.001
+      structure:
+        group: externalLoads
+        selected: true
+        unitFactor: 0.001
+      fuel:
+        group: externalLoads
+        selected: true
+        unitFactor: 0.001
+      total:
+        group: externalLoads
+        selected: true
+        unitFactor: 0.001
+      Q:
+        group: internalLoads
+        unitFactor: 0.001
+      M:
+        group: internalLoads
+        unitFactor: 0.001
+      T:
+        group: internalLoads
+        unitFactor: 0.001
+    formFields:
+      thrust:
+        range: [0, 500]
+        unit: 'kN'
+      airplaneMass:
+        range: [30000, 300000]
+        stepSize: 1000
+        unit: 'kg'
+      relWingMass:
+        range: [10, 30]
+        unit: '%'
+      relFuelMass:
+        range: [20, 40]
+        unit: '%'
+      relEngineMass:
+        range: [5, 15]
+        unit: '%'
+      relPayload:
+        range: [10, 30]
+        unit: '%'
+      span:
+        range: [10, 80]
+        stepSize: 0.1
+        unit: 'm'
+      aspectRatio:
+        range: [1, 40]
+      taper:
+        range: [0, 1]
+        stepSize: 0.01
+      wingArea:
+        # fixed type: 'value'
+        precision: 2
+        unit: 'm²'
+      innerChord:
+        # fixed type: 'value'
+        precision: 2
+        unit: 'm'
+      outerChord:
+        # fixed type: 'value'
+        precision: 2
+        unit: 'm'
+      mac:
+        # fixed type: 'value'
+        precision: 2
+        unit: 'm'
+      relGearPositionX:
+        range: [0, 100]
+        unit: '%'
+      relGearPositionY:
+        range: [0, 100]
+        unit: '%'
+      relTankSpan:
+        range: [0, 100]
+        unit: '%'
+      relShearCenter:
+        range: [0, 100]
+        unit: '%'
+      relEnginePositionY:
+        range: [0, 100]
+        unit: '%'
+      relThrustCenterZ:
+        range: [-100, 100]
+        unit: '%'
+aliasing:
+  defaults:
+    frequency: 2
+    samplingRate: 20
+    phase: 0
+  formFields:
+    frequency:
+      range:
+        slider: [0, 25]
+        spinner: [1, 9999]
+        unit: 'Hz'
+    samplingRate:
+      range:
+        slider: [0, 60]
+        spinner: [1, 9999]
+        unit: 'Hz'
+    phase:
+      range: [0, 100]
+      unit: '%'
+beamSectionProperties:
+  halfCircle:
+    defaults:
+      baseThickness: 1
+      relBaseThickness: 1
+      averageRadius: 10
+    curves:
+      profile:
+        selected: true
+    formFields:
+      baseThickness:
+        range: [0, 9.2]
+        stepSize: 0.1
+      relBaseThickness:
+        range: [0.1, 9.2]
+        stepSize: 0.1
+      averageRadius:
+        # fixed type: 'number'
+  staticMoment:
+    defaults:
+      coord: eigen
+      za: 40
+      l: 50
+      t: 5
+      alpha: -44
+      z0: 25
+      Iy: 0
+      IntSz: 0
+      z0element: 0
+    curves:
+      profile:
+        fillStyle: "rgba(100, 150, 200, 0.2)"
+        strokeStyle: "rgba(100, 150, 200, 0.4)"
+        lineWidth: 2
+        selected: true
+      Sz:
+        selected: true
+      Ss:
+        selected: true
+      neutralAxis:
+        selected: true
+    formFields:
+      za:
+        range: [-100, 100]
+        stepSize: 1
+        unit: 'mm'
+      l:
+        range: [0,    50]
+        stepSize: 1
+        unit: 'mm'
+      t:
+        range: [0,    10]
+        stepSize: 0.1
+        unit: 'mm'
+      alpha:
+        range: [-90,  90]
+        stepSize: 1
+        unit: '°'
+      z0:
+        range: [-100, 100]
+        stepSize: 1
+        unit: 'mm'
+      IntSz:
+        # fixed type: value
+        precision: 0
+        unit: 'mm³'
+      Iy:
+        # fixed type: value
+        precision: 0
+        unit: 'mm⁴'
+      z0element:
+        # fixed type: value
+        precision: 2
+        unit: 'mm'
+  uProfile:
+    defaults:
+      profileWidth: 10
+      relFlangeThickness: 0.1
+      relWebThickness: 0.8
+      relLipThickness: 0.05
+      relWebHeight: 1
+      relLipHeight: 0.1
+      secondMomentOfArea: 0.083
+      shearCenter: 0.0
+    curves:
+      profile:
+        fillStyle: "rgba(100, 150, 200, 0.2)"
+        strokeStyle: "rgba(100, 150, 200, 0.4)"
+        lineWidth: 2
+        selected: true
+    formFields:
+      profileWidth:
+        range: [0.1, 100]
+        stepSize: 0.1
+        unit: 'mm'
+      relFlangeThickness:
+        range: [0, 1]
+        stepSize: 0.01
+      relWebThickness:
+        range: [0, 1]
+        stepSize: 0.01
+      relLipThickness:
+        range: [0, 1]
+        stepSize: 0.01
+      relWebHeight:
+        range: [0, 5]
+        stepSize: 0.01
+      relLipHeight:
+        range: [-1, 1]
+        stepSize: 0.01
+      secondMomentOfArea:
+        # fixed type: 'value'
+        precision: 4
+        unit: 'mm⁴'
+      shearCenter:
+        # fixed type: 'value'
+        precision: 4
+        unit: 'mm'
+  zProfile:
+    defaults:
+      h: 10.0
+      b: 5
+      tf: 1
+      ts: 1
+      alfa: 30.0
+      Iy_h: 0
+      Iz_h: 0
+    curves:
+      baseProfile:
+        fillStyle: "rgba(100, 150, 200, 0.2)"
+        strokeStyle: "rgba(100, 150, 200, 0.8)"
+        lineWidth: 2
+        selected: true
+      rotProfile:
+        fillStyle: "rgba(200, 150, 100, 0.2)"
+        strokeStyle: "rgba(200, 150, 200, 0.8)"
+        lineWidth: 2
+        selected: true
+    formFields:
+      b:
+        range: [0, 50]
+        stepSize: 0.01
+        unit: 'mm'
+      h:
+        range: [0, 100]
+        stepSize: 0.01
+        unit: 'mm'
+      tf:
+        range: [0, 10]
+        stepSize: 0.01
+        unit: 'mm'
+      ts:
+        range: [0, 10]
+        stepSize: 0.01
+        unit: 'mm'
+      alfa:
+        range: [-90, 90]
+        stepSize: 0.50
+        unit: '°'
+      IyAlphaX:
+        precision: 0
+        unit: 'mm⁴'
+      IzAlphaX:
+        precision: 0
+        unit: 'mm⁴'
+      IyzAlphaX:
+        precision: 0
+        unit: 'mm⁴'
+      Iy_h:
+        precision: 2
+        unit: 'mm'
+      Iz_h:
+        precision: 2
+        unit: 'mm'
+buckling:
+  curves:
+    bucklingValue_1:
+      selected: true
+    bucklingValue_2:
+      selected: true
+    bucklingValue_3:
+      selected: true
+    bucklingValue_4:
+      selected: true
+    bucklingValue_5:
+      selected: true
+    bucklingValue_6:
+      selected: true
+    festoon:
+      selected: false
+  defaults:
+    stiffenings: 0
+    yx_ratio: 0
+  formFields:
+    stiffenings:
+      range: [0, 5]
+    yx_ratio:
+      range: [-2, 2]
+      stepSize: 0.1
+cabinSlendernessRatio:
+  curves:
+    wlr:
+      group: variableAbreast
+      selected: true
+    wlr_2:
+      group: fixedAbreast
+      selected: true
+    wlr_3:
+      group: fixedAbreast
+    wlr_4:
+      group: fixedAbreast
+    wlr_5:
+      group: fixedAbreast
+      selected: true
+    wlr_6:
+      group: fixedAbreast
+    wlr_7:
+      group: fixedAbreast
+    wlr_8:
+      group: fixedAbreast
+    wlr_9:
+      group: fixedAbreast
+    wlr_10:
+      group: fixedAbreast
+      selected: true
+    upperBound:
+      group: bounds
+      selected: true
+      lineWidth: 2
+      lineDash: [5, 5]
+    lowerBound:
+      group: bounds
+      selected: true
+      lineWidth: 2
+      lineDash: [5, 5]
+  defaults:
+    f_ratio_lr: 4
+    c_ratio_lr: 18
+    m_ratio_lr: -1
+    f_aisleWidth: -1
+    c_aisleWidth: -1
+    m_aisleWidth: 20
+    f_seatWidth: 55
+    c_seatWidth: 49.5
+    m_seatWidth_lr: 46.5
+    m_seatWidth_reg: 42
+    f_abreast: -1
+    c_abreast: -1
+    m_abreast: 6
+    standard: Regional
+    f_seatSpace: 6
+    c_seatSpace: 4
+    m_seatSpace: 4
+    f_seatPitch: 85
+    c_seatPitch: 48
+    m_seatPitch_lr: 34
+    m_seatPitch_reg: 32
+    f_serviceArea: 478
+    c_serviceArea: 181
+    m_serviceArea_lr: 82
+    m_serviceArea_reg: 72
+    f_stowage: 30
+    c_stowage: 30
+    m_stowage: 30
+    f_doorWidth: 45
+    c_doorWidth: 45
+    m_doorWidth: 45
+    f_doorInterval: 60
+    c_doorInterval: 60
+    m_doorInterval: 60
+    valueAtRange: 0
+    valueAtRangePrecision: 0
+  formFields:
+    standard:
+      # fixed type: 'value'
+      group: abreast
+    f_abreast:
+      # fixed type: 'value'
+      precision: 0
+      group: abreast
+    c_abreast:
+      # fixed type: 'value'
+      precision: 0
+      group: abreast
+    m_abreast:
+      range: [2, 10]
+      stepSize: 1
+      group: abreast
+    f_ratio_lr:
+      range: [0, 100]
+      stepSize: 1
+      group: LrClassRatio
+      unit: '%'
+    c_ratio_lr:
+      range: [0, 100]
+      stepSize: 1
+      group: LrClassRatio
+      unit: '%'
+    m_ratio_lr:
+      # fixed type: 'value'
+      precision: 0
+      group: LrClassRatio
+      unit: '%'
+    f_aisleWidth:
+      # fixed type: 'value'
+      precision: 1
+      group: aisleWidth
+      unit: 'in'
+    c_aisleWidth:
+      # fixed type: 'value'
+      precision: 1
+      group: aisleWidth
+      unit: 'in'
+    m_aisleWidth:
+      range: [20, 80]
+      stepSize: 1
+      group: aisleWidth
+      unit: 'in'
+    f_seatWidth:
+      range: [30, 120]
+      stepSize: 0.5
+      group: seatWidth
+      unit: 'cm'
+    c_seatWidth:
+      range: [30, 120]
+      stepSize: 0.5
+      group: seatWidth
+      unit: 'cm'
+    m_seatWidth_lr:
+      range: [30, 120]
+      stepSize: 0.5
+      group: seatWidth
+      unit: 'cm'
+    m_seatWidth_reg:
+      range: [30, 120]
+      stepSize: 0.5
+      group: seatWidth
+      unit: 'cm'
+    f_seatPitch:
+      range: [20, 100]
+      stepSize: 1
+      group: seatPitch
+      unit: 'in'
+    c_seatPitch:
+      range: [20, 100]
+      stepSize: 1
+      group: seatPitch
+      unit: 'in'
+    m_seatPitch_lr:
+      range: [20, 100]
+      stepSize: 1
+      group: seatPitch
+      unit: 'in'
+    m_seatPitch_reg:
+      range: [20, 100]
+      stepSize: 1
+      group: seatPitch
+      unit: 'in'
+    f_serviceArea:
+      range: [0, 1000]
+      stepSize: 1
+      group: serviceArea
+      unit: 'in²'
+    c_serviceArea:
+      range: [0, 1000]
+      stepSize: 1
+      group: serviceArea
+      unit: 'in²'
+    m_serviceArea_lr:
+      range: [0, 1000]
+      stepSize: 1
+      group: serviceArea
+      unit: 'in²'
+    m_serviceArea_reg:
+      range: [0, 1000]
+      stepSize: 1
+      group: serviceArea
+      unit: 'in²'
+    f_stowage:
+      range: [0, 100]
+      stepSize: 1
+      group: bulkArea
+      unit: 'in²'
+    c_stowage:
+      range: [0, 100]
+      stepSize: 1
+      group: bulkArea
+      unit: 'in²'
+    m_stowage:
+      range: [0, 100]
+      stepSize: 1
+      group: bulkArea
+      unit: 'in²'
+    f_seatSpace:
+      range: [0, 20]
+      stepSize: 1
+      group: seatSpace
+      unit: 'in'
+    c_seatSpace:
+      range: [0, 20]
+      stepSize: 1
+      group: seatSpace
+      unit: 'in'
+    m_seatSpace:
+      range: [0, 20]
+      stepSize: 1
+      group: seatSpace
+      unit: 'in'
+    f_doorWidth:
+      range: [45, 150]
+      stepSize: 1
+      group: doorWidth
+      unit: 'in'
+    c_doorWidth:
+      range: [45, 150]
+      stepSize: 1
+      group: doorWidth
+      unit: 'in'
+    m_doorWidth:
+      range: [45, 150]
+      stepSize: 1
+      group: doorWidth
+      unit: 'in'
+    f_doorInterval:
+      range: [0, 60]
+      stepSize: 1
+      group: doorInterval
+      unit: 'ft'
+    c_doorInterval:
+      range: [0, 60]
+      stepSize: 1
+      group: doorInterval
+      unit: 'ft'
+    m_doorInterval:
+      range: [0, 60]
+      stepSize: 1
+      group: doorInterval
+      unit: 'ft'
+directOperatingCosts:
+  airplane:
+    defaults:
+      engine: Custom
+      reference: Custom
+      selected: false
+      saved: false
+      predefined: false
+      maxTakeOffMass: 270000      # in kg
+      maxFuelMass: 113000         # in kg
+      operationEmptyMass: 136000  # in kg
+      maxPayload: 41000           # in kg
+      ldRatio: 18
+      sfc: 0.65                   # in kg/daNh
+      speed: 850                  # in km/h
+      engineCount: 2
+      slst: 262                   # in kN
+    formFields:
+      maxTakeOffMass:
+        range: [0, 1000000]
+        stepSize: 1000
+        unit: 'kg'
+      maxFuelMass:
+        range: [0, 500000]
+        stepSize: 1000
+        unit: 'kg'
+      operationEmptyMass:
+        range: [0, 500000]
+        stepSize: 1000
+        unit: 'kg'
+      maxPayload:
+        range: [0, 200000]
+        stepSize: 1000
+        unit: 'kg'
+      ldRatio:
+        range: [0, 30]
+      sfc:
+        range: [0, 1]
+        stepSize: 0.001
+        unit: 'kg/daNh'
+      speed:
+        range: [500, 1000]
+        unit: 'km/h'
+      engineCount:
+        range: [0, 8]
+      slst:
+        range: [100, 400]
+        unit: 'kN'
+  airplanes:
+    A 300 B4-200:
+      maxTakeOffMass: 165000
+      maxFuelMass: 59646
+      operationEmptyMass: 80640
+      maxPayload: 45360
+      maxRange: 8412
+      speed: 854
+      engineCount: 2
+      slst: 233
+      engine: 2 x 233kN CF6-50C2
+      reference: FCA09/99
+    A 300-600:
+      maxTakeOffMass: 165000
+      maxFuelMass: 49600
+      operationEmptyMass: 87600
+      maxPayload: 42400
+      maxRange: 7900
+      speed: 841
+      engineCount: 2
+      slst: 262
+      engine: 2 x 262kN CF6-80C2A1
+      reference: FCA10/93
+    A 300-600R:
+      maxTakeOffMass: 170500
+      maxFuelMass: 53321
+      operationEmptyMass: 90300
+      maxPayload: 39700
+      maxRange: 10530
+      speed: 845
+      engineCount: 2
+      slst: 274
+      engine: 2 x 274kN CF6-80C2A5
+      reference: FCA09/99
+    A 300-600ST:
+      maxTakeOffMass: 155000
+      maxFuelMass: 49600
+      operationEmptyMass: 86500
+      maxPayload: 47300
+      maxRange: 6667
+      speed: 435
+      engineCount: 2
+      slst: 262
+      engine: 2 x 262kN CF6-80C2A8
+      reference: FCA09/99
+    A 310-200:
+      maxTakeOffMass: 142000
+      maxFuelMass: 44100
+      operationEmptyMass: 79450
+      maxPayload: 33550
+      maxRange: 9567
+      speed: 850
+      engineCount: 2
+      slst: 237
+      engine: 2 x 237kN CF6-80C2A2
+      reference: FCA09/99
+    A 310-300:
+      maxTakeOffMass: 150000
+      maxFuelMass: 48834
+      operationEmptyMass: 79666
+      maxPayload: 33334
+      maxRange: 9400
+      speed: 848
+      engineCount: 2
+      slst: 237
+      engine: 2 x 237kN CF6-80C2A2
+      reference: FCA10/93
+    A 318-100HGW:
+      maxTakeOffMass: 66000
+      maxFuelMass: 19088
+      operationEmptyMass: 39035
+      maxPayload: 15465
+      maxRange: 6960
+      speed: 826
+      engineCount: 2
+      slst: 102
+      engine: 2 x 102kN CF56-5B
+      reference: FCA09/99
+    A 319:
+      maxTakeOffMass: 64000
+      maxFuelMass: 19000
+      operationEmptyMass: 39500
+      maxPayload: 17500
+      maxRange: 7745
+      speed: 826
+      engineCount: 2
+      slst: 104
+      engine: 2 x 104kN CFM56-5A5
+      reference: FCA10/93
+    A 319-100HGW:
+      maxTakeOffMass: 75500
+      maxFuelMass: 23728
+      operationEmptyMass: 40350
+      maxPayload: 18150
+      maxRange: 8720
+      speed: 826
+      engineCount: 2
+      slst: 104
+      engine: 2 x 104kN CFM56-5A5
+      reference: FCA09/99
+    A 320:
+      maxTakeOffMass: 73500
+      maxFuelMass: 19000
+      operationEmptyMass: 41000
+      maxPayload: 20000
+      maxRange: 6865
+      speed: 830
+      engineCount: 2
+      slst: 111
+      engine: 2 x 111kN CFM56-5A1
+      reference: FCA10/93
+    A 320-200HGW:
+      maxTakeOffMass: 77000
+      maxFuelMass: 23728
+      operationEmptyMass: 42100
+      maxPayload: 20400
+      maxRange: 7550
+      speed: 833
+      engineCount: 2
+      slst: 118
+      engine: 2 x 118kN CFM56-5A3
+      reference: FCA09/99
+    A 321:
+      maxTakeOffMass: 83000
+      maxFuelMass: 18000
+      operationEmptyMass: 47500
+      maxPayload: 22000
+      maxRange: 5685
+      speed: 833
+      engineCount: 2
+      slst: 133
+      engine: 2 x 133kN CFM56-5B1
+      reference: FCA10/93
+    A 330-200:
+      maxTakeOffMass: 230000
+      maxFuelMass: 90782
+      operationEmptyMass: 120500
+      maxPayload: 47500
+      maxRange: 16600
+      speed: 870
+      engineCount: 2
+      slst: 325
+      engine: 2 x 325kN PW4173
+      reference: FCA09/99
+    A 330-300:
+      maxTakeOffMass: 230000
+      maxFuelMass: 87620
+      operationEmptyMass: 124300
+      maxPayload: 48700
+      maxRange: 12050
+      speed: 870
+      engineCount: 2
+      slst: 316
+      engine: 2 x 316kN Trent 772
+      reference: FCA09/99
+    A 340-200:
+      maxTakeOffMass: 257000
+      maxFuelMass: 105977
+      operationEmptyMass: 129300
+      maxPayload: 43700
+      maxRange: 14900
+      speed: 865
+      engineCount: 4
+      slst: 151
+      engine: 4 x 151kN CFM56-5C4
+      reference: FCA09/99
+    A 340-300:
+      maxTakeOffMass: 275000
+      maxFuelMass: 116775
+      operationEmptyMass: 130200
+      maxPayload: 47800
+      maxRange: 13250
+      speed: 870
+      engineCount: 4
+      slst: 151
+      engine: 4 x 151kN CFM56-5C4
+      reference: FCA09/99
+    A 340-500:
+      maxTakeOffMass: 365000
+      maxFuelMass: 172200
+      operationEmptyMass: 170300
+      maxPayload: 51700
+      maxRange: 16750
+      speed: 882
+      engineCount: 4
+      slst: 236
+      engine: 4 x 236kN Trent 553
+      reference: FCA09/99
+    A 340-600:
+      maxTakeOffMass: 365000
+      maxFuelMass: 156200
+      operationEmptyMass: 176900
+      maxPayload: 63100
+      maxRange: 14400
+      speed: 882
+      engineCount: 4
+      slst: 249
+      engine: 4 x 249kN Trent 556
+      reference: FCA09/99
+    A 380-800:
+      maxTakeOffMass: 560000
+      maxFuelMass: 243350
+      operationEmptyMass: 276680
+      maxPayload: 84320
+      maxRange: 18458
+      speed: 907
+      engineCount: 4
+      slst: 298
+      engine: 4 x 298kN Trent 970
+      reference: www08/02
+    A 380-800F:
+      maxTakeOffMass: 590000
+      maxFuelMass: 243350
+      operationEmptyMass: 251900
+      maxPayload: 150100
+      maxRange: 16956
+      speed: 907
+      engineCount: 4
+      slst: 340
+      engine: 4 x 340kN Trent 977
+      reference: www08/02
+    An 124-100:
+      maxTakeOffMass: 392000
+      maxFuelMass: 217000
+      operationEmptyMass: 175000
+      maxPayload: 150000
+      maxRange: 15888
+      speed: 796
+      engineCount: 4
+      slst: 230
+      engine: 4 x 230kN ZMKB D-18T
+      reference: FCA09/99
+    An 32:
+      maxTakeOffMass: 27000
+      maxFuelMass: 6081
+      operationEmptyMass: 16900
+      maxPayload: 8100
+      maxRange: 2775
+      speed: 470
+      engineCount: 2
+      slst: 3860
+      engine: 2 x 3860kW ZMKB AI-20D-4/-5
+      reference: FCA08/99
+    ATR 42-320:
+      maxTakeOffMass: 16700
+      maxFuelMass: 4000
+      operationEmptyMass: 10790
+      maxPayload: 4410
+      maxRange: 4150
+      speed: 448
+      engineCount: 2
+      slst: 1602
+      engine: 2 x 1602kW PW121
+      reference: FCA08/99
+    ATR 72-500:
+      maxTakeOffMass: 22000
+      maxFuelMass: 5000
+      operationEmptyMass: 12850
+      maxPayload: 7150
+      maxRange: 3080
+      speed: 435
+      engineCount: 2
+      slst: 2049
+      engine: 2 x 2049kW PW127
+      reference: FCA08/99
+    Avro RJ100:
+      maxTakeOffMass: 44225
+      maxFuelMass: 7440
+      operationEmptyMass: 25365
+      maxPayload: 12056
+      maxRange: 2108
+      speed: 687
+      engineCount: 4
+      slst: 31
+      engine: 4 x 31kN LF507
+      reference: FCA09/99
+    Avro RJ70:
+      maxTakeOffMass: 38102
+      maxFuelMass: 7603
+      operationEmptyMass: 23781
+      maxPayload: 8424
+      maxRange: 2987
+      speed: 659
+      engineCount: 4
+      slst: 31
+      engine: 4 x 31kN LF507
+      reference: FCA10/93
+    Avro RJ70ER:
+      maxTakeOffMass: 43091
+      maxFuelMass: 10338
+      operationEmptyMass: 23900
+      maxPayload: 9893
+      maxRange: 4420
+      speed: 667
+      engineCount: 4
+      slst: 31
+      engine: 4 x 31kN LF5071F
+      reference: FCA09/99
+    Avro RJ85:
+      maxTakeOffMass: 42184
+      maxFuelMass: 8505
+      operationEmptyMass: 24378
+      maxPayload: 11456
+      maxRange: 2693
+      speed: 659
+      engineCount: 4
+      slst: 31
+      engine: 4 x 31kN LF507
+      reference: FCA09/99
+    B 717-200HGW:
+      maxTakeOffMass: 54884
+      maxFuelMass: 13082
+      operationEmptyMass: 31071
+      maxPayload: 14515
+      maxRange: 3803
+      speed: 813
+      engineCount: 2
+      slst: 93
+      engine: 2 x 93kN BR715
+      reference: www08/02
+    B 727-200:
+      maxTakeOffMass: 95028
+      maxFuelMass: 32489
+      operationEmptyMass: 46164
+      maxPayload: 17154
+      maxRange: 6019
+      speed: 865
+      engineCount: 3
+      slst: 72
+      engine: 3 x 72kN JT8D-17
+      reference: FCA10/93
+    B 737-200:
+      maxTakeOffMass: 52390
+      maxFuelMass: 15597
+      operationEmptyMass: 27520
+      maxPayload: 15572
+      maxRange: 5347
+      speed: 778
+      engineCount: 2
+      slst: 72
+      engine: 2 x 72kN JT8D-15A
+      reference: FCA10/93
+    B 737-300:
+      maxTakeOffMass: 56472
+      maxFuelMass: 15872
+      operationEmptyMass: 31895
+      maxPayload: 15732
+      maxRange: 5902
+      speed: 795
+      engineCount: 2
+      slst: 90
+      engine: 2 x 90kN CFM56-3-B1
+      reference: FCA10/93
+    B 737-400:
+      maxTakeOffMass: 62820
+      maxFuelMass: 16250
+      operationEmptyMass: 33370
+      maxPayload: 17880
+      maxRange: 5241
+      speed: 796
+      engineCount: 2
+      slst: 98
+      engine: 2 x 98kN CFM56-3-B2
+      reference: FCA10/93
+    B 737-500:
+      maxTakeOffMass: 52390
+      maxFuelMass: 16150
+      operationEmptyMass: 30960
+      maxPayload: 15530
+      maxRange: 6389
+      speed: 795
+      engineCount: 2
+      slst: 82
+      engine: 2 x 82kN CFM56-3-B4
+      reference: FCA10/93
+    B 747 SP:
+      maxTakeOffMass: 317520
+      maxFuelMass: 153640
+      operationEmptyMass: 151450
+      maxPayload: 34530
+      maxRange: 16450
+      speed: 904
+      engineCount: 4
+      slst: 230
+      engine: 4 x 230kN RB211-524D4
+      reference: FCA10/93
+    B 747-100B:
+      maxTakeOffMass: 340200
+      maxFuelMass: 146610
+      operationEmptyMass: 169420
+      maxPayload: 69400
+      maxRange: 13020
+      speed: 896
+      engineCount: 4
+      slst: 207
+      engine: 4 x 207kN CF6-45A2
+      reference: FCA10/93
+    B 747-200B:
+      maxTakeOffMass: 351535
+      maxFuelMass: 160463
+      operationEmptyMass: 171460
+      maxPayload: 67360
+      maxRange: 13690
+      speed: 896
+      engineCount: 4
+      slst: 245
+      engine: 4 x 245kN JT9D-7
+      reference: FCA09/99
+    B 747-200F:
+      maxTakeOffMass: 377850
+      maxFuelMass: 164690
+      operationEmptyMass: 155130
+      maxPayload: 112490
+      maxRange: 13720
+      speed: 896
+      engineCount: 4
+      slst: 245
+      engine: 4 x 245kN JT9D-7
+      reference: FCA09/99
+    B 747-300:
+      maxTakeOffMass: 377850
+      maxFuelMass: 164690
+      operationEmptyMass: 174040
+      maxPayload: 68640
+      maxRange: 13590
+      speed: 907
+      engineCount: 4
+      slst: 245
+      engine: 4 x 245kN JT9D-7
+      reference: FCA09/99
+    B 747-400:
+      maxTakeOffMass: 396900
+      maxFuelMass: 174330
+      operationEmptyMass: 181120
+      maxPayload: 70620
+      maxRange: 15570
+      speed: 919
+      engineCount: 4
+      slst: 281
+      engine: 4 x 281kN PW4062
+      reference: FCA09/99
+    B 747-400F:
+      maxTakeOffMass: 396900
+      maxFuelMass: 176000
+      operationEmptyMass: 164020
+      maxPayload: 112670
+      maxRange: 16000
+      speed: 907
+      engineCount: 4
+      slst: 281
+      engine: 4 x 281kN PW4062
+      reference: FCA09/99
+    B 757-200:
+      maxTakeOffMass: 99792
+      maxFuelMass: 24344
+      operationEmptyMass: 58248
+      maxPayload: 25152
+      maxRange: 8460
+      speed: 850
+      engineCount: 2
+      slst: 178
+      engine: 2 x 178kN RB211-535E4
+      reference: FCA10/93
+    B 757-200HGW:
+      maxTakeOffMass: 108800
+      maxFuelMass: 34293
+      operationEmptyMass: 57067
+      maxPayload: 26333
+      maxRange: 8760
+      speed: 850
+      engineCount: 2
+      slst: 170
+      engine: 2 x 170kN PW2037
+      reference: FCA10/93
+    B 757-200F:
+      maxTakeOffMass: 115660
+      maxFuelMass: 34270
+      operationEmptyMass: 51060
+      maxPayload: 39650
+      maxRange: 8081
+      speed: 854
+      engineCount: 2
+      slst: 193
+      engine: 2 x 193kN RB211-535E4B
+      reference: FCA09/99
+    B 757-300:
+      maxTakeOffMass: 123600
+      maxFuelMass: 34850
+      operationEmptyMass: 63650
+      maxPayload: 31600
+      maxRange: 7370
+      speed: 854
+      engineCount: 2
+      slst: 193
+      engine: 2 x 193kN RB211-535E4B
+      reference: FCA09/99
+    B 767-200:
+      maxTakeOffMass: 151953
+      maxFuelMass: 53070
+      operationEmptyMass: 80785
+      maxPayload: 33974
+      maxRange: 8797
+      speed: 846
+      engineCount: 2
+      slst: 223
+      engine: 2 x 223kN PW4050
+      reference: FCA10/93
+    B 767-200ER:
+      maxTakeOffMass: 179169
+      maxFuelMass: 76022
+      operationEmptyMass: 82282
+      maxPayload: 35652
+      maxRange: 12038
+      speed: 850
+      engineCount: 2
+      slst: 258
+      engine: 2 x 258kN CF6-80C2B4F
+      reference: FCA10/93
+    B 767-300:
+      maxTakeOffMass: 159211
+      maxFuelMass: 51527
+      operationEmptyMass: 86364
+      maxPayload: 39735
+      maxRange: 9915
+      speed: 852
+      engineCount: 2
+      slst: 224
+      engine: 2 x 224kN CF6-80C2B2F
+      reference: FCA10/93
+    B 767-300ER:
+      maxTakeOffMass: 186880
+      maxFuelMass: 76472
+      operationEmptyMass: 88178
+      maxPayload: 45632
+      maxRange: 11297
+      speed: 850
+      engineCount: 2
+      slst: 274
+      engine: 2 x 274kN CF6-80C2B6F
+      reference: FCA10/93
+    B 777-200:
+      maxTakeOffMass: 229500
+      maxFuelMass: 59380
+      operationEmptyMass: 136100
+      maxPayload: 54400
+      maxRange: 8520
+      speed: 882
+      engineCount: 2
+      slst: 331
+      engine: 2 x 331kN
+      reference: FCA10/93
+    B 777-200LR:
+      maxTakeOffMass: 340200
+      maxFuelMass: 158782
+      operationEmptyMass: 145150
+      maxPayload: 63955
+      maxRange: 19236
+      speed: 896
+      engineCount: 2
+      slst: 511
+      engine: 2 x 511kN GE90-115B
+      reference: www08/02
+    B 777-300:
+      maxTakeOffMass: 299300
+      maxFuelMass: 134368
+      operationEmptyMass: 157800
+      maxPayload: 66740
+      maxRange: 17197
+      speed: 896
+      engineCount: 2
+      slst: 400
+      engine: 2 x 400kN Trent 892
+      reference: www08/02
+    B 777-300ER:
+      maxTakeOffMass: 340200
+      maxFuelMass: 142292
+      operationEmptyMass: 167829
+      maxPayload: 69853
+      maxRange: 16241
+      speed: 896
+      engineCount: 2
+      slst: 511
+      engine: 2 x 511kN GE90-115B
+      reference: www08/02
+    B 787-8:
+      maxTakeOffMass: 217724
+      maxFuelMass: 100862
+      operationEmptyMass: 108862
+      maxPayload: 45359
+      maxRange: 20400
+      speed: 919
+      engineCount: 2
+      slst: 311
+      engine: 2 x 311kN Trent 1000
+      reference: www07/07
+    BAe 1-11 475:
+      maxTakeOffMass: 41721
+      maxFuelMass: 11053
+      operationEmptyMass: 23465
+      maxPayload: 10556
+      maxRange: 4279
+      speed: 759
+      engineCount: 2
+      slst: 56
+      engine: 2 x 56kN Spey 512-14DW
+      reference: FCA10/93
+    BAe 1-11 500:
+      maxTakeOffMass: 45201
+      maxFuelMass: 11331
+      operationEmptyMass: 24969
+      maxPayload: 11773
+      maxRange: 3886
+      speed: 783
+      engineCount: 2
+      slst: 56
+      engine: 2 x 56kN Spey 512-14DW
+      reference: FCA10/93
+    BAe 146-100:
+      maxTakeOffMass: 38102
+      maxFuelMass: 9353
+      operationEmptyMass: 23400
+      maxPayload: 7671
+      maxRange: 2800
+      speed: 669
+      engineCount: 4
+      slst: 31
+      engine: 4 x 31kN ALF502R
+      reference: FCA09/99
+    BAe 146-200:
+      maxTakeOffMass: 42185
+      maxFuelMass: 9353
+      operationEmptyMass: 23750
+      maxPayload: 10269
+      maxRange: 2735
+      speed: 669
+      engineCount: 4
+      slst: 31
+      engine: 4 x 31kN ALF502R
+      reference: FCA09/99
+    BAe 146-300:
+      maxTakeOffMass: 44225
+      maxFuelMass: 9353
+      operationEmptyMass: 24750
+      maxPayload: 10857
+      maxRange: 2650
+      speed: 698
+      engineCount: 4
+      slst: 31
+      engine: 4 x 31kN ALF502R
+      reference: FCA09/99
+    Beech 1900D:
+      maxTakeOffMass: 7688
+      maxFuelMass: 1972
+      operationEmptyMass: 4876
+      maxPayload: 1928
+      maxRange: 3098
+      speed: 422
+      engineCount: 2
+      slst: 954
+      engine: 2 x 954kW PT6A67D
+      reference: FCA08/99
+    Beech King Air 350:
+      maxTakeOffMass: 6804
+      maxFuelMass: 1593
+      operationEmptyMass: 4227
+      maxPayload: 1443
+      maxRange: 3621
+      speed: 430
+      engineCount: 2
+      slst: 783
+      engine: 2 x 783kW PT6A60A
+      reference: FCA08/99
+    CRJ 200:
+      maxTakeOffMass: 21523
+      maxFuelMass: 4142
+      operationEmptyMass: 13730
+      maxPayload: 5411
+      maxRange: 5011
+      speed: 785
+      engineCount: 2
+      slst: 41
+      engine: 2 x 41kN CF343A1
+      reference: FCA08/99
+    CRJ 200ER:
+      maxTakeOffMass: 23133
+      maxFuelMass: 6375
+      operationEmptyMass: 13740
+      maxPayload: 6218
+      maxRange: 3045
+      speed: 796
+      engineCount: 2
+      slst: 39
+      engine: 2 x 39kN CF343B1
+      reference: FCA08/99
+    CRJ 200LR:
+      maxTakeOffMass: 24040
+      maxFuelMass: 6375
+      operationEmptyMass: 13740
+      maxPayload: 6218
+      maxRange: 3713
+      speed: 796
+      engineCount: 2
+      slst: 39
+      engine: 2 x 39kN CF343B1
+      reference: FCA08/99
+    CRJ100:
+      maxTakeOffMass: 20275
+      maxFuelMass: 2890
+      operationEmptyMass: 13655
+      maxPayload: 5485
+      maxRange: 3235
+      speed: 787
+      engineCount: 2
+      slst: 41
+      engine: 2 x 41kN CF343A1
+      reference: FCA08/99
+    Dash 8-100A:
+      maxTakeOffMass: 15650
+      maxFuelMass: 2576
+      operationEmptyMass: 10310
+      maxPayload: 3890
+      maxRange: 2176
+      speed: 441
+      engineCount: 2
+      slst: 1602
+      engine: 2 x 1602kW PW121
+      reference: FCA08/99
+    Dash 8Q-400A:
+      maxTakeOffMass: 28917
+      maxFuelMass: 5367
+      operationEmptyMass: 17148
+      maxPayload: 8480
+      maxRange: 2401
+      speed: 537
+      engineCount: 2
+      slst: 3778
+      engine: 2 x 3778kW PW150A
+      reference: FCA08/99
+    DC 10-10:
+      maxTakeOffMass: 199580
+      maxFuelMass: 80739
+      operationEmptyMass: 110223
+      maxPayload: 41730
+      maxRange: 10469
+      speed: 869
+      engineCount: 3
+      slst: 178
+      engine: 3 x 178kN CF6-6D
+      reference: FCA10/93
+    DC 10-30:
+      maxTakeOffMass: 263636
+      maxFuelMass: 110272
+      operationEmptyMass: 121364
+      maxPayload: 45529
+      maxRange: 11850
+      speed: 880
+      engineCount: 3
+      slst: 234
+      engine: 3 x 234kN CF6-50C2
+      reference: FCA10/93
+    DC 9-30:
+      maxTakeOffMass: 49000
+      maxFuelMass: 11231
+      operationEmptyMass: 25400
+      maxPayload: 14100
+      maxRange: 3560
+      speed: 798
+      engineCount: 2
+      slst: 69
+      engine: 2 x 69kN JT8D-15
+      reference: FCA10/93
+    DC 9-40:
+      maxTakeOffMass: 51700
+      maxFuelMass: 11108
+      operationEmptyMass: 27800
+      maxPayload: 14400
+      maxRange: 3315
+      speed: 815
+      engineCount: 2
+      slst: 69
+      engine: 2 x 69kN JT8D-15
+      reference: FCA10/93
+    DC 9-50:
+      maxTakeOffMass: 54900
+      maxFuelMass: 13000
+      operationEmptyMass: 29300
+      maxPayload: 15400
+      maxRange: 3545
+      speed: 817
+      engineCount: 2
+      slst: 72
+      engine: 2 x 72kN JT8D-17
+      reference: FCA10/93
+    ERJ-145:
+      maxTakeOffMass: 19200
+      maxFuelMass: 4163
+      operationEmptyMass: 11690
+      maxPayload: 5410
+      maxRange: 3032
+      speed: 680
+      engineCount: 2
+      slst: 31
+      engine: 2 x 31kN AE3007A
+      reference: FCA08/99
+    F 100:
+      maxTakeOffMass: 43090
+      maxFuelMass: 10621
+      operationEmptyMass: 24593
+      maxPayload: 11242
+      maxRange: 4354
+      speed: 767
+      engineCount: 2
+      slst: 62
+      engine: 2 x 62kN Tay Mk620-15
+      reference: FCA10/93
+    F 28 Mk4000:
+      maxTakeOffMass: 33110
+      maxFuelMass: 10219
+      operationEmptyMass: 17565
+      maxPayload: 10560
+      maxRange: 4145
+      speed: 663
+      engineCount: 2
+      slst: 44
+      engine: 2 x 44kN RB183 Mk555-15P
+      reference: FCA10/93
+    F 70:
+      maxTakeOffMass: 36740
+      maxFuelMass: 7641
+      operationEmptyMass: 22673
+      maxPayload: 9302
+      maxRange: 3487
+      speed: 743
+      engineCount: 2
+      slst: 62
+      engine: 2 x 62kN Tay Mk620-15
+      reference: FCA10/93
+    FD 228-212:
+      maxTakeOffMass: 6400
+      maxFuelMass: 1884
+      operationEmptyMass: 3740
+      maxPayload: 2200
+      maxRange: 2582
+      speed: 333
+      engineCount: 2
+      slst: 580
+      engine: 2 x 580kW TPE331-5A252D
+      reference: FCA08/99
+    FD 328:
+      maxTakeOffMass: 13990
+      maxFuelMass: 3428
+      operationEmptyMass: 9072
+      maxPayload: 3538
+      maxRange: 3330
+      speed: 611
+      engineCount: 2
+      slst: 1625
+      engine: 2 x 1625kW PW119B
+      reference: FCA08/99
+    FD 328JET:
+      maxTakeOffMass: 15660
+      maxFuelMass: 3844
+      operationEmptyMass: 9420
+      maxPayload: 3650
+      maxRange: 2601
+      speed: 741
+      engineCount: 2
+      slst: 27
+      engine: 2 x 27kN PW306B
+      reference: FCA08/99
+    IL 62MK:
+      maxTakeOffMass: 165000
+      maxFuelMass: 83400
+      operationEmptyMass: 71600
+      maxPayload: 23000
+      maxRange: 10000
+      speed: 852
+      engineCount: 4
+      slst: 108
+      engine: 4 x 108kN Soloviev D-30KU
+      reference: FCA10/93
+    IL 96-300:
+      maxTakeOffMass: 216000
+      maxFuelMass: 84000
+      operationEmptyMass: 117000
+      maxPayload: 40000
+      maxRange: 11000
+      speed: 824
+      engineCount: 4
+      slst: 156
+      engine: 4 x 156kN Soloviev PS-90A
+      reference: FCA10/93
+    Jetstream 32EP:
+      maxTakeOffMass: 7350
+      maxFuelMass: 1423
+      operationEmptyMass: 4717
+      maxPayload: 2019
+      maxRange: 2841
+      speed: 444
+      engineCount: 2
+      slst: 761
+      engine: 2 x 761kW TPE33112
+      reference: FCA08/99
+    Jetstream 41:
+      maxTakeOffMass: 10886
+      maxFuelMass: 2449
+      operationEmptyMass: 6623
+      maxPayload: 3084
+      maxRange: 3833
+      speed: 463
+      engineCount: 2
+      slst: 1230
+      engine: 2 x 1230kW TPE33114
+      reference: FCA08/99
+    L 100-30:
+      maxTakeOffMass: 70307
+      maxFuelMass: 20945
+      operationEmptyMass: 34620
+      maxPayload: 22986
+      maxRange: 4822
+      speed: 517
+      engineCount: 4
+      slst: 3399
+      engine: 4 x 3399kW Allison 501-D22A
+      reference: FCA10/93
+    L 1011-1:
+      maxTakeOffMass: 195044
+      maxFuelMass: 71932
+      operationEmptyMass: 109647
+      maxPayload: 37770
+      maxRange: 9075
+      speed: 883
+      engineCount: 3
+      slst: 187
+      engine: 3 x 187kN RB211-22B
+      reference: FCA10/93
+    L 1011-100:
+      maxTakeOffMass: 211374
+      maxFuelMass: 80441
+      operationEmptyMass: 111795
+      maxPayload: 33355
+      maxRange: 9555
+      speed: 895
+      engineCount: 3
+      slst: 187
+      engine: 3 x 187kN RB211-22B
+      reference: FCA10/93
+    L 1011-200:
+      maxTakeOffMass: 211374
+      maxFuelMass: 80339
+      operationEmptyMass: 112690
+      maxPayload: 32460
+      maxRange: 10040
+      speed: 906
+      engineCount: 3
+      slst: 222
+      engine: 3 x 222kN RB211-524B
+      reference: FCA10/93
+    L 1011-250:
+      maxTakeOffMass: 231332
+      maxFuelMass: 96543
+      operationEmptyMass: 113289
+      maxPayload: 40025
+      maxRange: 11853
+      speed: 895
+      engineCount: 3
+      slst: 222
+      engine: 3 x 222kN RB211-524B
+      reference: FCA10/93
+    L 1011-500:
+      maxTakeOffMass: 224982
+      maxFuelMass: 92613
+      operationEmptyMass: 111489
+      maxPayload: 41825
+      maxRange: 11760
+      speed: 900
+      engineCount: 3
+      slst: 222
+      engine: 3 x 222kN RB211-524B4
+      reference: FCA10/93
+    LET 420:
+      maxTakeOffMass: 6600
+      maxFuelMass: 1360
+      operationEmptyMass: 4225
+      maxPayload: 1675
+      maxRange: 1598
+      speed: 324
+      engineCount: 2
+      slst: 580
+      engine: 2 x 580kW Walter M601F
+      reference: FCA08/99
+    MD 11:
+      maxTakeOffMass: 283720
+      maxFuelMass: 119296
+      operationEmptyMass: 134081
+      maxPayload: 55566
+      maxRange: 15250
+      speed: 880
+      engineCount: 3
+      slst: 274
+      engine: 3 x 274kN CF6-80C2
+      reference: FCA10/93
+    MD 11F:
+      maxTakeOffMass: 273292
+      maxFuelMass: 117076
+      operationEmptyMass: 111406
+      maxPayload: 93304
+      maxRange: 15250
+      speed: 880
+      engineCount: 3
+      slst: 274
+      engine: 3 x 274kN CF6-80C2
+      reference: FCA10/93
+    MD 81:
+      maxTakeOffMass: 63500
+      maxFuelMass: 17678
+      operationEmptyMass: 35570
+      maxPayload: 17930
+      maxRange: 5280
+      speed: 813
+      engineCount: 2
+      slst: 86
+      engine: 2 x 86kN JT8D-209
+      reference: FCA10/93
+    MD 82:
+      maxTakeOffMass: 67812
+      maxFuelMass: 17562
+      operationEmptyMass: 35630
+      maxPayload: 19710
+      maxRange: 4941
+      speed: 813
+      engineCount: 2
+      slst: 93
+      engine: 2 x 93kN JT8D-217A/C
+      reference: FCA10/93
+    MD 83:
+      maxTakeOffMass: 72580
+      maxFuelMass: 21073
+      operationEmptyMass: 36620
+      maxPayload: 18720
+      maxRange: 5828
+      speed: 813
+      engineCount: 2
+      slst: 97
+      engine: 2 x 97kN JT8D-219
+      reference: FCA10/93
+    MD 87:
+      maxTakeOffMass: 63500
+      maxFuelMass: 17519
+      operationEmptyMass: 33253
+      maxPayload: 20271
+      maxRange: 5478
+      speed: 813
+      engineCount: 2
+      slst: 93
+      engine: 2 x 93kN JT8D-217B/C
+      reference: FCA09/99
+    Saab 340B Plus:
+      maxTakeOffMass: 13155
+      maxFuelMass: 2580
+      operationEmptyMass: 8225
+      maxPayload: 3795
+      maxRange: 2865
+      speed: 430
+      engineCount: 2
+      slst: 1394
+      engine: 2 x 1394kW CT79B
+      reference: FCA08/99
+    TU 154M:
+      maxTakeOffMass: 100000
+      maxFuelMass: 39250
+      operationEmptyMass: 55300
+      maxPayload: 18700
+      maxRange: 6600
+      speed: 850
+      engineCount: 3
+      slst: 104
+      engine: 3 x 104kN D-30KU154-11
+      reference: FCA09/99
+    TU 204:
+      maxTakeOffMass: 93500
+      maxFuelMass: 18000
+      operationEmptyMass: 56500
+      maxPayload: 22100
+      maxRange: 3850
+      speed: 848
+      engineCount: 2
+      slst: 191
+      engine: 2 x 191kN RB211-535E4-B
+      reference: FCA10/93
+    Y-7-100:
+      maxTakeOffMass: 21800
+      maxFuelMass: 4790
+      operationEmptyMass: 14988
+      maxPayload: 4667
+      maxRange: 1982
+      speed: 444
+      engineCount: 2
+      slst: 2080
+      engine: 2 x 2080kW Dongan WJ5A1
+      reference: FCA08/99
+    Y-7-200A:
+      maxTakeOffMass: 21800
+      maxFuelMass: 4030
+      operationEmptyMass: 13700
+      maxPayload: 5500
+      maxRange: 2650
+      speed: 420
+      engineCount: 2
+      slst: 2051
+      engine: 2 x 2051kW PW127C
+      reference: FCA08/99
+    Yak 42:
+      maxTakeOffMass: 56500
+      maxFuelMass: 18200
+      operationEmptyMass: 33700
+      maxPayload: 10500
+      maxRange: 3800
+      speed: 691
+      engineCount: 2
+      slst: 64
+      engine: 2 x 64kN Lotarev D-36
+      reference: FCA10/93
+    Yak 42M:
+      maxTakeOffMass: 63300
+      maxFuelMass: 15200
+      operationEmptyMass: 38500
+      maxPayload: 14700
+      maxRange: 5300
+      speed: 770
+      engineCount: 2
+      slst: 74
+      engine: 2 x 74kN Lotarev D-436M
+      reference: FCA10/93
+  costs:
+    defaults:
+      preset: regional
+      oemPrice: 1150          # in €/kg
+      interestRate: 5         # in %
+      amortizationPeriod: 12  # in years
+      residualValue: 15       # in %
+      insuranceRate: 0.5      # in %
+      avgSalaryFA: 60000      # in €/year
+      avgSalaryFC: 300000     # in €/year for 2 pilots
+      crewComplement: 7
+      fuelPrice: 0.2          # in €/kg
+      landingPrice: 0.01      # in €/kg
+      handlingPrice: 0.1      # in €/kg
+      costBurden: 2
+      laborRate: 50           # in €/h
+      atcPrice: 0.7
+      transportRate: 0.3      # in €/kg
+    formFields:
+      oemPrice:
+        range: [0, 4000]
+        unit: '€/kg'
+      interestRate:
+        range: [0, 100]
+        unit: '%'
+      amortizationPeriod:
+        range: [0, 30]
+        unit: 'years'
+      residualValue:
+        range: [0, 100]
+        unit: '%'
+      insuranceRate:
+        range: [0, 5]
+        stepSize: 0.1
+        unit: '%'
+      avgSalaryFA:
+        range: [0, 60000]
+        stepSize: 1000
+        unit: '€/year'
+      avgSalaryFC:
+        range: [0, 300000]
+        stepSize: 1000
+        unit: '€/year'
+      crewComplement:
+        range: [0, 20]
+      fuelPrice:
+        range: [0, 1]
+        stepSize: 0.1
+        unit: '€/kg'
+      landingPrice:
+        range: [0, 0.05]
+        stepSize: 0.001
+        unit: '€/kg'
+      handlingPrice:
+        range: [0, 1]
+        stepSize: 0.01
+        unit: '€/kg'
+      costBurden:
+        range: [0, 5]
+        stepSize: 0.1
+      laborRate:
+        range: [0, 100]
+        stepSize: 0.1
+        unit: '€/h'
+      atcPrice:
+        range: [0, 1]
+        stepSize: 0.01
+      transportRate:
+        range: [0, 1]
+        stepSize: 0.01
+  defaults:
+    holdingTime: 30      # in min
+    diversionRange: 200  # in nm
+    fuelReserve: 5       # in %
+  formFields:
+    holdingTime:
+      range: [0, 120]
+      unit: 'min'
+    diversionRange:
+      range: [0, 500]
+      unit: 'NM'
+    fuelReserve:
+      range: [0, 20]
+      stepSize: 0.1
+      unit: '%'
+  curves:
+    m_PL:
+      selected: true
+      unitFactor: 0.001
+    m_F:
+      selected: true
+      unitFactor: 0.001
+    m_RF:
+      selected: true
+      unitFactor: 0.001
+    m_TO:
+      unitFactor: 0.001
+    flights:
+    fh:
+    fhPA:
+    C:
+      group: new_DOC
+    C_cap:
+      group: new_DOC
+    C_crew:
+      group: new_DOC
+    MC_af_mat:
+      group: new_DOC
+    MC_af_per:
+      group: new_DOC
+    MC_eng:
+      group: new_DOC
+    MC:
+      group: new_DOC
+    tko:
+      group: new_DOC
+    sko:
+      group: new_DOC
+internationalStandardAtmosphere:
+  defaults:
+    deltaTemperature: 0
+    altitude: 0
+  formFields:
+    altitude:
+      range: [0, 32000]
+      unit: 'm'
+    deltaTemperature:
+      range: [-105, 45]
+      unit: 'K'
+    seaLevelTemperature:
+      unit: '°C'
+      precision: 0
+    pressure_value:
+      unit: 'N/m²'
+      precision: 0
+    relativePressure_value:
+      unit: '%'
+      precision: 0
+    density_value:
+      unit: 'kg/m³'
+      precision: 2
+    relativeDensity_value:
+      unit: '%'
+      precision: 0
+    temperature_value:
+      unit: 'K'
+      precision: 0
+    relativeTemperature_value:
+      unit: '%'
+      precision: 0
+    speedOfSound_value:
+      unit: 'm/s'
+      precision: 0
+    dynamicViscosity_value:
+      unit: '10<sup>-6</sup> Ns/m²'
+      precision: 2
+    kinematicViscosity_value:
+      unit: '10<sup>-6</sup> m²/s'
+      precision: 2
+  curves:
+    pressure:
+      group: absoluteFigures
+      selected: true
+    relativePressure:
+      group: relativeFigures
+    density:
+      group: absoluteFigures
+      selected: true
+    relativeDensity:
+      group: relativeFigures
+    temperature:
+      group: absoluteFigures
+      selected: true
+    relativeTemperature:
+      group: relativeFigures
+    speedOfSound:
+      group: absoluteFigures
+      selected: true
+    dynamicViscosity:
+      group: absoluteFigures
+    kinematicViscosity:
+      group: absoluteFigures
+jetEnginePerformance:
+  consumption:
+    defaults:
+      height: 0
+      mu: 0
+      deltaP: 0.02
+      TET: 1500
+      OAPR: 30
+      eta_c: 0.85
+      eta_f: 0.83
+      eta_n: 0.97
+      eta_t: 0.85
+    curves:
+      SFC:
+        group: variableBypassRatio
+        selected: true
+      SFC_m0:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+      SFC_m2:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+        selected: true
+      SFC_m4:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+      SFC_m6:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+        selected: true
+      SFC_m8:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+      SFC_m10:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+        selected: true
+    formFields:
+      mu:
+        range: [0, 13]
+        stepSize: 0.01
+      height:
+        range: [0, 20]
+        stepSize: 0.1
+        unit: 'km'
+      TET:
+        range: [1000, 2000]
+        stepSize: 10
+        unit: 'K'
+      OAPR:
+        range: [2, 80]
+      eta_c:
+        range: [0.8, 1]
+        stepSize: 0.01
+      eta_f:
+        range: [0.8, 1]
+        stepSize: 0.01
+      eta_n:
+        range: [0.8, 1]
+        stepSize: 0.01
+      eta_t:
+        range: [0.8, 1]
+        stepSize: 0.01
+      deltaP:
+        range: [0, 0.1]
+        stepSize: 0.01
+  thrust:
+    curves:
+      SS:
+        group: variableBypassRatio
+        selected: true
+      SS_m0:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+      SS_m2:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+        selected: true
+      SS_m4:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+      SS_m6:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+        selected: true
+      SS_m8:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+      SS_m10:
+        group: fixedBypassRatio
+        lineDash: [5, 5]
+        selected: true
+    defaults:
+      height: 0
+      mu: 0
+      deltaP: 0.02
+      D: 1.0
+    formFields:
+      mu:
+        range: [0, 13]
+        stepSize: 0.01
+      height:
+        range: [0, 20]
+        stepSize: 0.1
+        unit: 'km'
+      D:
+        range: [0, 1]
+        stepSize: 0.01
+      deltaP:
+        range: [0, 0.1]
+        stepSize: 0.01
+laminateDeformation:
+  defaults:
+    laminate: fullyCoupled
+    length: 200
+    aspectRatio: 2
+    width: 100
+    xLoad: 100
+    yLoad: 0
+    shearLoad: 0
+    xMoment: 0
+    yMoment: 0
+    shearMoment: 0
+    material: wireframe
+    xyPsf: 5
+    zPsf: 5
+  formFields:
+    length:
+      range: [10, 500]
+      unit: 'mm'
+    aspectRatio:
+    width:
+      range: [10, 500]
+      unit: 'mm'
+    xLoad:
+      range: [-100, 100]
+      unit: 'N/mm'
+    yLoad:
+      range: [-100, 100]
+      unit: 'N/mm'
+    shearLoad:
+      range: [-100, 100]
+      unit: 'N/mm'
+    xMoment:
+      unit:  'Nmm/mm'
+    yMoment:
+      unit:  'Nmm/mm'
+    shearMoment:
+      unit:  'Nmm/mm'
+    xyPsf:
+      range: [1, 20]
+    zPsf:
+      range: [1, 20]
+  laminates:
+    fullyCoupled:
+      membraneStiffness: [[68000, 12400, 6500], [12400, 38500, 19100], [6500, 19100, 13100]]
+      cupplingStiffness: [[13800, -2800, -1600], [-2800, -8400, -4800], [-1600, -4800, -2800]]
+      bendingStiffness: [[5700, 1000, 500], [1000, 3200, 1600], [500, 1600, 1100]]
+    unsymmetricAnglePly:
+      membraneStiffness: [[65100, 11900, 0], [11900, 37200, 0], [0, 0, 12800]]
+      cupplingStiffness: [[0, 0, 800], [0, 0, 2300], [800, 2300, 0]]
+      bendingStiffness: [[8700, 350, 0], [350, 1100, 0], [0, 0, 420]]
+  graph:
+    fogMinimumDistance: 100
+    fogMaximumDistance: 1100
+liftDistribution:
+  defaults:
+    aspectRatio: 10
+    linearTwist: 0.0
+    sweep: 0.0
+    taperRatio: 0.5
+    liftCoefficient: 0.5
+    cruisingSpeed: 0.0
+    wingSpan: 100
+  curves:
+    gamma:
+      selected: true
+    gamma_a:
+      selected: true
+    gamma_b:
+      selected: true
+    elliptic:
+      selected: true
+    C_a:
+    C_A:
+    geometry:
+      fillStyle: "rgba(100, 150, 200, 0.2)"
+      strokeStyle: "rgba(100, 150, 200, 0.4)"
+      lineWidth: 2
+      showInLegend: false
+      selected: true
+  formFields:
+    aspectRatio:
+      range: [4, 15]
+    linearTwist:
+      range: [-15, 15]
+    sweep:
+      range: [-30, 45]
+      unit: '°'
+    taperRatio:
+      range: [0.05, 1.0]
+      stepSize: 0.01
+    liftCoefficient:
+      range: [0, 1.5]
+      stepSize: 0.01
+    cruisingSpeed:
+      range: [0, 0.9]
+      stepSize: 0.01
+      unit: 'Ma'
+mohrsCircle:
+  defaults:
+    nx: 0.5
+    ny: -0.5
+    nxy: 0.5
+    alpha: 75
+    nX: 0
+    nY: 0
+    nXY: 0
+    n1: 0
+    n2: 0
+    x0: 0
+    R: 0
+  curves:
+    transformedSectionForce:
+      strokeStyle: 'rgba(255, 120, 0, 0.8)'
+      selected: true
+    sectionForce:
+      strokeStyle: 'rgba(98, 173, 67, 0.8)'
+      selected: true
+    circle:
+      strokeStyle: 'rgba(50, 120, 255, 0.8)'
+      lineDash: [5, 5]
+      selected: true
+  formFields:
+    nx:
+      range: [-3, 3]
+      stepSize: 0.01
+      group: stresses
+      unit: 'N/mm²'
+    ny:
+      range: [-3, 3]
+      stepSize: 0.01
+      group: stresses
+      unit: 'N/mm²'
+    nxy:
+      range: [-3, 3]
+      stepSize: 0.01
+      group: stresses
+      unit: 'N/mm²'
+    alpha:
+      range: [0, 90]
+      precision: 3
+      group: stressesOnInclinedPlane
+      unit: '°'
+    nX:
+      # fixed type: 'value'
+      precision: 3
+      group: stressesOnInclinedPlane
+      unit: 'N/mm²'
+    nY:
+      # fixed type: 'value'
+      precision: 3
+      group: stressesOnInclinedPlane
+      unit: 'N/mm²'
+    nXY:
+      # fixed type: 'value'
+      precision: 3
+      group: stressesOnInclinedPlane
+      unit: 'N/mm²'
+    n1:
+      # fixed type: 'value'
+      precision: 3
+      group: principalStresses
+      unit: 'N/mm²'
+    n2:
+      # fixed type: 'value'
+      precision: 3
+      group: principalStresses
+      unit: 'N/mm²'
+    x0:
+      # fixed type: 'value'
+      precision: 3
+      group: centerAndRadius
+    R:
+      # fixed type: 'value'
+      precision: 3
+      group: centerAndRadius
+sandwichStructuredComposite:
+  curves:
+    w_beam:
+      lineDash: [5, 5]
+      selected: false
+    w_stress:
+      lineDash: [5, 5]
+      selected: true
+    w_total:
+      selected: true
+    w_stress_ratio:
+      selected: true
+      unitFactor: 100
+    core_value:
+      selected: false
+  defaults:
+    width: 1
+    length: 20
+    height: 0.2
+    skinRatio: 10
+    load: 54
+    elasticModulusSkin: 100
+    shearModulusCore: 500
+    valueAtRange: 10
+    valueAtRangePrecision: 1
+  formFields:
+    width:
+      range: [1, 5]
+      stepSize: 1
+      group: dimensions
+    length:
+      range: [1, 100]
+      stepSize: 1
+      group: dimensions
+    height:
+      range: [0.05, 10]
+      stepSize: 0.05
+      group: dimensions
+    skinRatio:
+      range: [0, 100]
+      stepSize: 0.5
+      group: dimensions
+      unit: '%'
+    load:
+      range: [0, 100]
+      stepSize: 1
+      group: loadAndMaterial
+      unit: 'N/mm'
+    elasticModulusSkin:
+      range: [50, 150]
+      stepSize: 1
+      group: loadAndMaterial
+      unit: 'GPa'
+    shearModulusCore:
+      range: [250, 750]
+      stepSize: 1
+      group: loadAndMaterial
+      unit: 'MPa'
+thinWalledCantilever:
+  defaults:
+    load: 700
+    length: 1000
+    height: 100
+    thickness: 1
+    E: 72
+    nue: 0.3
+    I: 2
+    G: 27037
+    continuous: no
+  formFields:
+    load:
+      range: [0, 200000]
+      stepSize: 500
+    length:
+      range: [100, 2000]
+    height:
+      range: [10, 1000]
+    thickness:
+      range: [0.5, 50]
+      stepSize: 0.1
+    E:
+      range: [0, 200]
+      stepSize: 1
+    nue:
+      range: [0, 1]
+      stepSize: 0.01
+    I:
+      # fixed type: 'value'
+      precision: 2
+    G:
+      # fixed type: 'value'
+      precision: 0
+  beam:
+    curves:
+      beam:
+        selected: true
+      slice:
+        selected: true
+  intermediates:
+    curves:
+      c1_dist:
+        group: intermediates
+        lineWidth: 2
+        selected: true
+      d1_dist:
+        group: intermediates
+        lineWidth: 2
+        selected: true
+      d2_dist:
+        group: intermediates
+        lineWidth: 2
+        selected: true
+vnDiagram:
+  graphAnnotations:
+    font: '12px Roboto'
+    fillStyle: 'black'
+  curves:
+    speedAnnotations:
+      zIndex: 2
+      group: general
+      selected: true
+      showInLegend: false
+      lineWidth: 1
+      lineDash: [5, 5]
+      strokeStyle: '#777'
+    nF:
+      zIndex: 1
+      group: flareLoadFactor
+      selected: true
+    nFTS:
+      zIndex: 1
+      group: flareLoadFactor
+      selected: false
+      lineDash: [5, 5]
+    nFTL:
+      zIndex: 1
+      group: flareLoadFactor
+      selected: false
+      lineDash: [5, 5]
+    nG:
+      zIndex: 1
+      group: gustLoad
+      selected: true
+    gustLines:
+      zIndex: 2
+      group: gustLoad
+      selected: false
+      showInLegend: false
+      strokeStyle: '#777'
+      subcurves:
+        gustLineB:
+          lineWidth: 1
+          lineDash: [5, 5]
+          strokeStyle: '#777'
+        gustLineC:
+          lineWidth: 1
+          lineDash: [5, 5]
+          strokeStyle: '#777'
+        gustLineD:
+          lineWidth: 1
+          lineDash: [5, 5]
+          strokeStyle: '#777'
+        gustLineE:
+          lineWidth: 1
+          lineDash: [5, 5]
+          strokeStyle: '#777'
+        gustLineF:
+          lineWidth: 1
+          lineDash: [5, 5]
+          strokeStyle: '#777'
+        gustLineG:
+          lineWidth: 1
+          lineDash: [5, 5]
+          strokeStyle: '#777'
+    gustHull:
+      zIndex: 0
+      group: general
+      selected: true
+      showInLegend: false
+      strokeStyle: '#cfcfff'
+  defaults:
+    vdvc60: 'no'
+    designSpeed: 235
+    aspectRatio: 9.0
+    taperRatio: 0.30
+    takeOffMass: 25
+    maxSurfaceLoad: 500
+    fuelFactor: 0.40
+    wingSweep: 23
+    maxLiftCoefficient: 1.4
+    minLiftCoefficient: -0.8
+    maxStartLiftCoefficient: 2
+    maxLandingLiftCoefficient: 2.5
+    altitude: 11
+  formFields:
+    designSpeed:
+      range: [0, 340]
+      unit: 'm/s'
+    aspectRatio:
+      range: [1, 20]
+    taperRatio:
+      range: [0, 1]
+      stepSize: 0.01
+    takeOffMass:
+      range: [1, 500]
+      unit: 't'
+    maxSurfaceLoad:
+      range: [1, 800]
+      unit: 'dN/qm'
+    fuelFactor:
+      range: [0, 0.5]
+      stepSize: 0.01
+    wingSweep:
+      range: [0, 500]
+      unit: '°'
+    maxLiftCoefficient:
+      range: [0, 3]
+      stepSize: 0.01
+    minLiftCoefficient:
+      range: [-3, 0]
+      stepSize: 0.01
+    maxStartLiftCoefficient:
+      range: [0, 3]
+      stepSize: 0.01
+    maxLandingLiftCoefficient:
+      range: [0, 3]
+      stepSize: 0.01
+    altitude:
+      range: [0, 16]
+      stepSize: 0.1
+      unit: 'km'

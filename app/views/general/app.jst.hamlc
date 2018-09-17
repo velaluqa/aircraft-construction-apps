@@ -1,0 +1,29 @@
+%section.app.active
+  %header
+    %nav.left
+      .overview.icon
+    %h2
+      - if @relatedApps.length > 0
+        .subapps.poised.select
+          %label= t("#{@path.replace(/\//g, '.')}.shortTitle")
+          %ul.options
+            - for relatedApp in @relatedApps
+              %li.option{ data-path: relatedApp.path }= t("#{relatedApp.path.replace(/\//g, '.')}.shortTitle")
+      - else
+        = t("#{@name}.shortTitle")
+    %nav.right
+      - if @hasHelpText
+        .help.icon
+      - for aside in @asideViews
+        %div{ class: "#{aside.name} aside icon", data-toggle-aside: aside.name }
+  %article.graph.active
+    - if @legendView
+      .legend
+    - if @graphView
+      .graph
+    - if @rangeHandlerView
+      .range-handler
+  %a{ href: ILR.settings.ilr.url, target: '_blank' }
+    %img.ilr-logo{ src: 'images/ilr_logo.png' }
+  - if @useHeadup
+    %aside.right.headup

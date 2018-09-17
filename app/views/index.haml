@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title Institut für Luft- und Raumfahrt
+    %meta{ name: 'viewport', content: 'initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width' }
+    %meta{ name: 'apple-mobile-web-app-capable', content: 'yes' }
+    %meta{ name: 'mobile-web-app-capable', content: 'yes' }
+    %meta{ name: 'msapplication-TileImage', content: 'images/favicons/homeicon-144.png' }
+    %link{ rel: 'icon', type: 'image/png', href: 'images/favicons/favicon-192.png', sizes: '192x192' }
+    %link{ rel: 'apple-touch-icon-precomposed', href: 'images/favicons/homeicon-152.png', sizes: '152x152' }
+    %meta{ charset: 'utf-8' }
+    != css :app, media: 'screen'
+    %script{ type: 'text/javascript', src: '//cdn.mathjax.org/mathjax/2.3-latest/MathJax.js?delayStartupUntil=configured' }
+    != js :app
+    - if settings.environment == :development
+      %script{ src: "/js/development/livereload.js?host=dev" }
+      - unless request.ip == "127.0.0.1"
+        %script{ src: "http://dev:8080/target/target-script-min.js" }
+      :coffeescript
+        ILR.debug = true
+  %body
+    #app

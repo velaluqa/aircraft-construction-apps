@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="94px" viewBox="0 0 100 94" enable-background="new 0 0 100 94" xml:space="preserve">
+    <g opacity="0.8">
+        <g>
+            <polyline fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" points="4.917,83.89 4.917,46.89 92.917,46.89"/>
+            <polygon fill="#23232B" points="98.313,46.89 89.5,43.89 89.5,49.89    "/>
+            <polygon fill="#23232B" points="4.917,91.89 7.917,82.89 1.917,82.89     "/>
+            <line fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" x1="4.917" y1="9.765" x2="4.917" y2="46.765"/>
+            <polygon fill="#23232B" points="4.917,1.765 1.917,10.765 7.917,10.765     "/>
+        </g>
+        <path fill="none" stroke="#5E5E75" stroke-width="2" stroke-miterlimit="10" d="M4.917,38.438c51.625,0,69.25,26.125,69.25,26.125 l-12.375,13c0,0-16.125-22.125-56.875-22.166C4.917,50.063,4.917,41.563,4.917,38.438z"/>
+        <path fill="none" stroke="#5E5E75" stroke-width="2" stroke-miterlimit="10" d="M65.542,72.813"/>
+        <path fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" d="M4.042,49.89"/>
+        <g>
+            <g>
+                <path fill="none" stroke="#5E5E75" stroke-width="2" stroke-miterlimit="10" d="M5.917,43.843c0.336,0,0.67,0.001,1.004,0.004"/>
+                <path fill="none" stroke="#5E5E75" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="1.9539,1.9539" d="M8.874,43.881 c35.204,0.903,54.856,17.74,59.907,22.662"/>
+                <path fill="none" stroke="#5E5E75" stroke-width="2" stroke-miterlimit="10" d="M69.468,67.228 c0.542,0.554,0.732,0.784,0.574,0.584"/>
+            </g>
+        </g>
+        <g>
+            <g>
+                <path fill="none" stroke="#5E5E75" stroke-width="2" stroke-miterlimit="10" d="M5.167,49.673c0.336,0,0.671,0.001,1.005,0.004" />
+                <path fill="none" stroke="#5E5E75" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="1.9587,1.9587" d="M8.13,49.709 c34.962,0.853,51.614,16.67,56.044,21.704"/>
+                <path fill="none" stroke="#5E5E75" stroke-width="2" stroke-miterlimit="10" d="M64.804,72.152 c0.413,0.503,0.613,0.785,0.613,0.785"/>
+            </g>
+        </g>
+        <line fill="none" stroke="#5E5E75" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="2,2" x1="20.625" y1="56.313" x2="22.667" y2="39.771"/>
+        <line fill="none" stroke="#5E5E75" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="2,2" x1="36" y1="60.104" x2="41.333" y2="43.688"/>
+        <line fill="none" stroke="#5E5E75" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="2,2" x1="49.833" y1="66.854" x2="59.167" y2="51.938"/>
+        <line fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" x1="74.917" y1="52.438" x2="74.917" y2="25.438"/>
+        <polygon fill="#23232B" points="74.917,60.438 77.917,51.438 71.917,51.438"/>
+    </g>
+</svg>

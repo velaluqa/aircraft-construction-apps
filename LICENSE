@@ -1,0 +1,90 @@
+//////////////////////////////////////////////////////////////////////
+
+The following files are NOT explicitely licensed and therefore subject
+to copyright:
+
+- app/images/favicons/favicon.ico
+- app/images/favicons/favicon.png
+- app/images/favicons/favicon-192.png
+- app/images/favicons/homeicon-152.png
+- app/images/favicons/homeicon-144.png
+- app/images/ilr_logo.png
+
+Copyright (c) 2017 FG Luftfahrzeugbau und Leichtbau, Institut für
+Luft- und Raumfahrt, Technische Universität Berlin
+
+//////////////////////////////////////////////////////////////////////
+
+The following files are licensed under the SIL OFL 1.1
+(http://scripts.sil.org/OFL):
+
+- app/fonts/fontawesome-webfont.eot
+- app/fonts/fontawesome-webfont.svg
+- app/fonts/fontawesome-webfont.ttf
+- app/fonts/fontawesome-webfont.woff
+
+//////////////////////////////////////////////////////////////////////
+
+The following files are licensed under the Apache License 2.0
+(http://www.apache.org/licenses/LICENSE-2.0):
+
+- app/fonts/Roboto-Italic-webfont.eot
+- app/fonts/Roboto-Italic-webfont.svg
+- app/fonts/Roboto-Italic-webfont.ttf
+- app/fonts/Roboto-Italic-webfont.woff
+- app/fonts/Roboto-LightItalic-webfont.eot
+- app/fonts/Roboto-LightItalic-webfont.svg
+- app/fonts/Roboto-LightItalic-webfont.ttf
+- app/fonts/Roboto-LightItalic-webfont.woff
+- app/fonts/Roboto-Light-webfont.eot
+- app/fonts/Roboto-Light-webfont.svg
+- app/fonts/Roboto-Light-webfont.ttf
+- app/fonts/Roboto-Light-webfont.woff
+- app/fonts/Roboto-MediumItalic-webfont.eot
+- app/fonts/Roboto-MediumItalic-webfont.svg
+- app/fonts/Roboto-MediumItalic-webfont.ttf
+- app/fonts/Roboto-MediumItalic-webfont.woff
+- app/fonts/Roboto-Medium-webfont.eot
+- app/fonts/Roboto-Medium-webfont.svg
+- app/fonts/Roboto-Medium-webfont.ttf
+- app/fonts/Roboto-Medium-webfont.woff
+- app/fonts/Roboto-Regular-webfont.eot
+- app/fonts/Roboto-Regular-webfont.svg
+- app/fonts/Roboto-Regular-webfont.ttf
+- app/fonts/Roboto-Regular-webfont.woff
+- app/fonts/Roboto-ThinItalic-webfont.eot
+- app/fonts/Roboto-ThinItalic-webfont.svg
+- app/fonts/Roboto-ThinItalic-webfont.ttf
+- app/fonts/Roboto-ThinItalic-webfont.woff
+- app/fonts/Roboto-Thin-webfont.eot
+- app/fonts/Roboto-Thin-webfont.svg
+- app/fonts/Roboto-Thin-webfont.ttf
+- app/fonts/Roboto-Thin-webfont.woff
+
+//////////////////////////////////////////////////////////////////////
+
+All other files are licensed under the MIT License:
+
+Copyright (c) 2017 FG Luftfahrzeugbau und Leichtbau, Institut für
+Luft- und Raumfahrt, Technische Universität Berlin
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+//////////////////////////////////////////////////////////////////////

@@ -1,0 +1,9 @@
+--name       "E-Learning Webapps Luftfahrzeugbau und Leichtbau"
+--readme     README.md
+--title      "E-Learning Webapps Luftfahrzeugbau und Leichtbau - Documentation"
+--private
+--extension  coffee
+--output     ./doc
+./app/js/lib/
+-
+CHANGELOG.md

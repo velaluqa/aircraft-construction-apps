@@ -1,0 +1,92 @@
+// Poised Specific
+$layers = {
+  modal: 400
+  section: {
+    header: 300
+    aside: 200
+    headup: 150
+    legend: 125
+    graph: 110
+    article: 100
+  }
+  textfield: {
+    input: 2
+    abbrev: 1
+  }
+  background: 0
+  back: -1
+}
+
+$color = #23232b
+$color-lighter = lighten($color, 40%)
+$color-disabled = lighten($color, 40%)
+$color-invalid = #b94e4e
+$color-focus = #71a8c6
+$background-color = #ffffff
+
+$header-background = #23232b
+$header-color = #e6e6e6
+$header-active-color = $color-focus
+$header-height = 50px
+
+$overlay-background = #e8e8e8
+
+$textfield-input = $color
+$textfield-border-focus = $color-focus
+$textfield-border-normal = #a5a5a5
+$textfield-border-disabled = #cecece
+$textfield-border-invalid = $color-invalid
+$textfield-background = rgba(#eeeeee, 0.75)
+
+$checkbox-border = #a5a5a5
+$checkbox-size = 20px
+$checkbox-padding = 1px
+$checkbox-margin = 17px
+
+$select-padding = 7px
+$select-triangle-size = 13px
+$select-color = $header-color
+$select-options-background = darken($background-color, 10%)
+$select-options-color = $color
+$select-options-padding = 14px
+$select-options-border = 0
+$select-options-shadow = 2px 2px 10px rgba($header-background, 0.1)
+$select-options-item-border = $list-item-border
+
+$list-anchor-color = $color
+$list-anchor-border = $list-anchor-color
+$list-item-height = 60px
+$list-item-color = $color
+$list-item-border = 1px solid lighten($list-item-color, 80%)
+$list-button-height = 60px
+
+$tab-header-height = 50px
+$tab-header-background = #555
+$tab-separator-color = lighten($tab-header-background, 25%)
+$tab-separator-height = 65%
+$tab-separator-width = 1px
+$tab-marker-color = $color-focus
+$tab-marker-height = 5px
+
+$button-primary-background = #71a8c6
+$button-primary-background-hover = lighten($button-primary-background, 40%)
+$button-primary-text = $color
+
+$button-secondary-background = #cacaca
+$button-secondary-background-hover = darken($button-secondary-background, 40%)
+$button-secondary-text = $color
+
+$baseline-ratio = (10/48)/2 // for Roboto font
+
+$media-gt-phone = "(min-width: 768px)"
+
+$toast-height = 30px
+$toast-font-size = $toast-height / 2
+$toast-margin = 10px
+$toast-background = rgba($color, 0.8)
+$toast-color = $background-color
+
+$aside-background = rgba($overlay-background, 0.85)
+
+// ILR specific
+$range-handler-height = 65px

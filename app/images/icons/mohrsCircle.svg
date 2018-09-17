@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="110px" height="93px" viewBox="0 0 110 93" enable-background="new 0 0 110 93" xml:space="preserve">
+    <g opacity="0.8">
+        <g>
+            <defs>
+                <circle id="SVGID_1_" cx="55" cy="46.278" r="31.667"/>
+            </defs>
+            <clipPath id="SVGID_2_">
+                <use xlink:href="#SVGID_1_"  overflow="visible"/>
+            </clipPath>
+            <polyline clip-path="url(#SVGID_2_)" fill="none" stroke="#5D5D6D" stroke-width="2" stroke-miterlimit="10" points="44.625,46.153 44.625,76.028 65.875,16.528 65.875,46.028"/>
+            <polyline clip-path="url(#SVGID_2_)" fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" points="33.5,46.153 33.5,68.153 76.75,24.903 76.75,46.028"/>
+        </g>
+        <g>
+            <polygon fill="#23232B" points="1.188,46.278 10,43.278 10,49.278    "/>
+            <polygon fill="#23232B" points="55,91.278 52,82.278 58,82.278     "/>
+            <line fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" x1="55" y1="83.5" x2="55" y2="9.5"/>
+            <polygon fill="#23232B" points="108.813,46.278 100,49.278 100,43.278    "/>
+            <polygon fill="#23232B" points="55,1.5 58,10.5 52,10.5    "/>
+            <line fill="none" stroke="#23232B" stroke-width="2" stroke-miterlimit="10" x1="9" y1="46.5" x2="103" y2="46.5"/>
+        </g>
+        <g>
+            <circle fill="none" stroke="#535360" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="5.0744,2.0297" cx="55" cy="46.278" r="31.667"/>
+        </g>
+    </g>
+</svg>
